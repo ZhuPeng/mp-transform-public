@@ -12,6 +12,7 @@
 * [GitHub Trending Hub](<https://github.com/ZhuPeng/mp-githubtrending>)
 * [Readhub](https://readhub.cn/topics)
 * [哔哩哔哩](https://www.bilibili.com/)
+* [腾讯视频](https://v.qq.com/)
 
 其他小程序的支持正在开发中，如果你的小程序希望接入，欢迎扫描如下二维码联系作者。
 
