@@ -2,7 +2,7 @@
 
 小程序排版小助手帮助大家更方便的在公众号文章中添加小程序，借助 Chrome 插件提供一键轻松添加和排版小程序链接。你只需要在文章中填写浏览器上的链接，小助手将自动转化为小程序可以识别的链接，比如：`https://github.com/ZhuPeng/mp-githubtrending`
 
-下载 Chrome 插件：[下载链接](https://7465-test-3c9b5e-1258459492.tcb.qcloud.la/mp-transform.crx)，参考离线安装方法：[图文详解Chrome插件离线安装方法 - 2019最新终极指南](<http://chromecj.com/utilities/2019-01/1791.html>)，安装完成后，浏览器右上角将出现如下 Logo。
+下载 Chrome 插件：[下载链接](https://7465-test-3c9b5e-1258459492.tcb.qcloud.la/common/mp-transform.crx)，参考离线安装方法：[图文详解Chrome插件离线安装方法 - 2019最新终极指南](<http://chromecj.com/utilities/2019-01/1791.html>)，安装完成后，浏览器右上角将出现如下 Logo。
 
 ![](https://7465-test-3c9b5e-1258459492.tcb.qcloud.la/common/link-128.png)
 
