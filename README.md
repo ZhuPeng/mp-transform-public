@@ -17,6 +17,8 @@
 * [腾讯视频](https://v.qq.com/)
 * [CSDN](https://blog.csdn.net/)
 * [简书](https://www.jianshu.com/)
+* [知乎热榜](https://www.zhihu.com)
+* [什么值得买](https://www.smzdm.com)
 
 其他小程序的支持正在开发中，如果你的小程序希望接入，欢迎扫描如下二维码联系作者。
 
