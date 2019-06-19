@@ -8,6 +8,11 @@
 
 ![](https://7465-test-3c9b5e-1258459492.tcb.qcloud.la/common/link-128.png)
 
+安装完成之后，进入微信公众号文章编辑页面，操作效果如下：
+
+![](https://7465-test-3c9b5e-1258459492.tcb.qcloud.la/common/wechat-editor.PNG)
+![](https://7465-test-3c9b5e-1258459492.tcb.qcloud.la/common/wechat-xiaoguo.PNG)
+
 
 ## 已支持的小程序列表
 
