@@ -122,6 +122,21 @@ var directTransform = [{
         if (id == "") { return meta.indexPage }
         return 'pages/haojia_details/haojia_details?id=' + id
     },
+}, {
+    nickname: '百度网盘',
+    appid: 'wxdcd3d073e47d1742',
+    urlPrefix: 'https://pan.baidu.com',
+    indexPage: 'pages/netdisk_index/index',
+    genMPUrl: function(meta, url) {
+        var idx = url.indexOf(meta.urlPrefix)
+        if (idx == -1 || url.indexOf('/s/') == -1) {return meta.indexPage }
+        // https://pan.baidu.com/s/10v3OUqXpkBnpurKFLI40jQ
+        var arr = url.split('/')
+        if (arr.length < 5) { return meta.indexPage }
+        var id = arr[4]
+        if (id == "") { return meta.indexPage }
+        return 'pages/netdisk_share/share?scene=' + id
+    },
 }]
 
 function DefaultGenMPUrl(meta, url) {
