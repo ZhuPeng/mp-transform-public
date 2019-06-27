@@ -111,6 +111,13 @@ var directTransform = [{
     indexPage: 'pages/netdisk_index/index',
     //  https://pan.baidu.com/s/10v3OUqXpkBnpurKFLI40jQ
     genMPUrl: GenFormatOneMPUrl('s', 'pages/netdisk_share/share?scene='),
+}, {
+    nickname: '36氪Lite',
+    appid: 'wx23551bed0b72cd7f',
+    urlPrefix: 'https://36kr.com',
+    indexPage: 'pages/list/list',
+    // https://36kr.com/p/5220102
+    genMPUrl: GenFormatOneMPUrl('p', 'pages/detail/detail?id='),
 }]
 
 function DefaultGenMPUrl(meta, url) {

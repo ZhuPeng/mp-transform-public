@@ -25,6 +25,7 @@
 * [知乎热榜](https://www.zhihu.com)、[知乎专栏](https://zhuanlan.zhihu.com)
 * [什么值得买](https://www.smzdm.com)
 * [百度网盘](https://pan.baidu.com): 分享链接为 https://pan.baidu.com/s/<随机字符串>，需要在末尾添加 #提取码#0#0，例如：https://pan.baidu.com/s/1EuJiHB-q2Lggrt28cjQISA#3tb7#0#0 
+* [36氪Lite](https://36kr.com)
       
 
 其他小程序的支持正在开发中，如果你的小程序希望接入，欢迎扫描如下二维码联系作者。
