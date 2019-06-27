@@ -107,6 +107,21 @@ var directTransform = [{
         return 'zhihu/question?id=' + id
     },
 }, {
+    nickname: '知乎热榜',
+    appid: 'wxeb39b10e39bf6b54',
+    urlPrefix: 'https://zhuanlan.zhihu.com',
+    indexPage: 'pages/index/index',
+    genMPUrl: function(meta, url) {
+        var idx = url.indexOf(meta.urlPrefix)
+        if (idx == -1 || url.indexOf('/p/') == -1) {return meta.indexPage }
+        // https://zhuanlan.zhihu.com/p/63501230
+        var arr = url.split('/')
+        if (arr.length < 5) { return meta.indexPage }
+        var id = arr[4]
+        if (id == "") { return meta.indexPage }
+        return 'zhihu/article?id=' + id
+    },
+}, {
     nickname: '什么值得买',
     appid: 'wxeb5d1f826d7998df',
     urlPrefix: 'https://www.smzdm.com',
