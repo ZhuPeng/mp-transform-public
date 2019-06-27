@@ -80,83 +80,56 @@ var directTransform = [{
     appid: 'wx646159264d261dab',
     urlPrefix: 'https://www.jianshu.com/',
     indexPage: 'pages/index',
-    genMPUrl: function(meta, url) {
-        var idx = url.indexOf(meta.urlPrefix)
-        if (idx == -1 || url.indexOf('/p/') == -1) {return meta.indexPage }
-        // pages/note?slug=24d22539d45a
-        // https://www.jianshu.com/p/24d22539d45a
-        var arr = url.slice(meta.urlPrefix.length+idx, url.length).split('/')
-        if (arr.length < 2) { return meta.indexPage }
-        var id = arr[1]
-        if (id == "" || id == "/") { return meta.indexPage }
-        return 'pages/note?slug=' + id
-    },
+    // https://www.jianshu.com/p/24d22539d45a
+    genMPUrl: GenFormatOneMPUrl('p', 'pages/note?slug='),
 }, {
     nickname: '知乎热榜',
     appid: 'wxeb39b10e39bf6b54',
     urlPrefix: 'https://www.zhihu.com',
     indexPage: 'pages/index/index',
-    genMPUrl: function(meta, url) {
-        var idx = url.indexOf(meta.urlPrefix)
-        if (idx == -1 || url.indexOf('/question/') == -1) {return meta.indexPage }
-        // https://www.zhihu.com/question/329765131
-        var arr = url.split('/')
-        if (arr.length < 5) { return meta.indexPage }
-        var id = arr[4]
-        if (id == "") { return meta.indexPage }
-        return 'zhihu/question?id=' + id
-    },
+    // https://www.zhihu.com/question/329765131
+    genMPUrl: GenFormatOneMPUrl('question', 'zhihu/question?id='),
 }, {
     nickname: '知乎热榜',
     appid: 'wxeb39b10e39bf6b54',
     urlPrefix: 'https://zhuanlan.zhihu.com',
     indexPage: 'pages/index/index',
-    genMPUrl: function(meta, url) {
-        var idx = url.indexOf(meta.urlPrefix)
-        if (idx == -1 || url.indexOf('/p/') == -1) {return meta.indexPage }
-        // https://zhuanlan.zhihu.com/p/63501230
-        var arr = url.split('/')
-        if (arr.length < 5) { return meta.indexPage }
-        var id = arr[4]
-        if (id == "") { return meta.indexPage }
-        return 'zhihu/article?id=' + id
-    },
+    // https://zhuanlan.zhihu.com/p/63501230
+    genMPUrl: GenFormatOneMPUrl('p', 'zhihu/article?id='),
 }, {
     nickname: '什么值得买',
     appid: 'wxeb5d1f826d7998df',
     urlPrefix: 'https://www.smzdm.com',
     indexPage: 'pages/index/index',
-    genMPUrl: function(meta, url) {
-        var idx = url.indexOf(meta.urlPrefix)
-        if (idx == -1 || url.indexOf('/p/') == -1) {return meta.indexPage }
-        // https://www.smzdm.com/p/14483467/
-        // https://post.smzdm.com/p/ax08nrm2/ 不支持
-        var arr = url.split('/')
-        if (arr.length < 5) { return meta.indexPage }
-        var id = arr[4]
-        if (id == "") { return meta.indexPage }
-        return 'pages/haojia_details/haojia_details?id=' + id
-    },
+    // https://www.smzdm.com/p/14483467/
+    // https://post.smzdm.com/p/ax08nrm2/ 不支持
+    genMPUrl: GenFormatOneMPUrl('p', 'pages/haojia_details/haojia_details?id='),
 }, {
     nickname: '百度网盘',
     appid: 'wxdcd3d073e47d1742',
     urlPrefix: 'https://pan.baidu.com',
     indexPage: 'pages/netdisk_index/index',
-    genMPUrl: function(meta, url) {
-        var idx = url.indexOf(meta.urlPrefix)
-        if (idx == -1 || url.indexOf('/s/') == -1) {return meta.indexPage }
-        // https://pan.baidu.com/s/10v3OUqXpkBnpurKFLI40jQ
-        var arr = url.split('/')
-        if (arr.length < 5) { return meta.indexPage }
-        var id = arr[4]
-        if (id == "") { return meta.indexPage }
-        return 'pages/netdisk_share/share?scene=' + id
-    },
+    //  https://pan.baidu.com/s/10v3OUqXpkBnpurKFLI40jQ
+    genMPUrl: GenFormatOneMPUrl('s', 'pages/netdisk_share/share?scene='),
 }]
 
 function DefaultGenMPUrl(meta, url) {
     if (url == meta.urlPrefix) {return meta.indexPage}
     return url
+}
+
+// url like: <prefix>/<gap>/<id>, such as: https://zhuanlan.zhihu.com/p/63501230
+function GenFormatOneMPUrl(gap, path) {
+    function genMPUrl(meta, url) {
+        var idx = url.indexOf(meta.urlPrefix)
+        if (idx == -1 || url.indexOf('/'+gap+'/') == -1) {return meta.indexPage }
+        var arr = url.split('/')
+        if (arr.length < 5) { return meta.indexPage }
+        var id = arr[4]
+        if (id == "") { return meta.indexPage }
+        return path + id
+    }
+    return genMPUrl
 }
 
 function genFilterFunc(urlPrefix) {
