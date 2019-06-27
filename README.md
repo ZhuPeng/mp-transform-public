@@ -33,6 +33,14 @@
 ![](https://7465-test-3c9b5e-1258459492.tcb.qcloud.la/mp-githubtrending/wechat_xiaopeng.jpeg)
 
 
+
+##  小程序跳转
+
+如果你是小程序开发人员，希望自己的小程序也能跳转如上小程序，可以复制仓库中的 [multimp.js](multimp.js) 到你的小程序源码中，具体使用方式可以参考：[链接代码](https://github.com/ZhuPeng/mp-githubtrending/blob/master/pages/component/md/md.js#L94)，同时你需要在小程序的 `app.json` 中添加允许跳转的小程序列表参数 `navigateToMiniProgramAppIdList`，[参考链接代码](https://github.com/ZhuPeng/mp-githubtrending/blob/master/app.json#L60)。
+
+
+
+
 ## FAQ
 
 有任何问题欢迎提交 Issue 和 PR，详情：[https://github.com/ZhuPeng/mp-transform-public](https://github.com/ZhuPeng/mp-transform-public)
