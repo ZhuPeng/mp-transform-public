@@ -35,3 +35,7 @@ https://github.com/ZhuPeng/mp-githubtrending
 [https://pan.baidu.com/s/1EuJiHB-q2Lggrt28cjQISA#3tb7#0#0](https://pan.baidu.com/s/1EuJiHB-q2Lggrt28cjQISA#3tb7#0#0)
 
 [https://36kr.com/p/5220102](https://36kr.com/p/5220102)
+
+[https://juejin.im/post/5d147765f265da1bb003d0dc](https://juejin.im/post/5d147765f265da1bb003d0dc)
+
+[https://www.v2ex.com/t/578192#reply103](https://www.v2ex.com/t/578192#reply103)

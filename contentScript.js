@@ -7,7 +7,7 @@ var directTransform = [{
     nickname: 'GitHub Trending Hub',
     appid: 'wx6204a7df95c7fb21',
     indexPage: 'pages/github/index',
-    urlPrefix: 'https://github.com/',
+    urlPrefix: 'https://github.com',
     genMPUrl: DefaultGenMPUrl,
 }, {
     nickname: 'Readhub',
@@ -61,7 +61,7 @@ var directTransform = [{
 }, {
     nickname: 'CSDN',
     appid: 'wx2115aba2ed1f96b9',
-    urlPrefix: 'https://blog.csdn.net/',
+    urlPrefix: 'https://blog.csdn.net',
     indexPage: 'pages/index/index',
     genMPUrl: function(meta, url) {
         var idx = url.indexOf(meta.urlPrefix)
@@ -78,7 +78,7 @@ var directTransform = [{
 }, {
     nickname: '简书',
     appid: 'wx646159264d261dab',
-    urlPrefix: 'https://www.jianshu.com/',
+    urlPrefix: 'https://www.jianshu.com',
     indexPage: 'pages/index',
     // https://www.jianshu.com/p/24d22539d45a
     genMPUrl: GenFormatOneMPUrl('p', 'pages/note?slug='),
@@ -118,6 +118,26 @@ var directTransform = [{
     indexPage: 'pages/list/list',
     // https://36kr.com/p/5220102
     genMPUrl: GenFormatOneMPUrl('p', 'pages/detail/detail?id='),
+}, {
+    nickname: '掘金第三方版',
+    appid: 'wx0f72a9f832b78889',
+    urlPrefix: 'https://juejin.im',
+    indexPage: 'pages/launch/launch',
+    // https://juejin.im/post/5d147765f265da1bb003d0dc
+    genMPUrl: GenFormatOneMPUrl('post', 'pages/post/post?type=post&id='),
+}, {
+    nickname: 'V2EX精美版',
+    appid: 'wx0677aeba5eee65fe',
+    urlPrefix: 'https://www.v2ex.com',
+    indexPage: 'pages/home/index',
+    // https://www.v2ex.com/t/578260#reply22
+    genMPUrl: function (meta, url) {
+        var p = GenFormatOneMPUrl('t', 'pages/home/detail?id=')(meta, url)
+        if (p.indexOf('#') != -1 ){
+            p = p.slice(0, p.indexOf('#'))
+        }
+        return p
+    }
 }]
 
 function DefaultGenMPUrl(meta, url) {
