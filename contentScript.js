@@ -102,8 +102,14 @@ var directTransform = [{
     urlPrefix: 'https://www.smzdm.com',
     indexPage: 'pages/index/index',
     // https://www.smzdm.com/p/14483467/
-    // https://post.smzdm.com/p/ax08nrm2/ 不支持
     genMPUrl: GenFormatOneMPUrl('p', 'pages/haojia_details/haojia_details?id='),
+}, {
+    nickname: '什么值得买',
+    appid: 'wxeb5d1f826d7998df',
+    urlPrefix: 'https://post.smzdm.com',
+    indexPage: 'pages/index/index',
+    // https://post.smzdm.com/p/ax08nrm2/
+    genMPUrl: GenFormatOneMPUrl('p', 'pages/haowen_details/haowen_details?type=11&id='),
 }, {
     nickname: '百度网盘',
     appid: 'wxdcd3d073e47d1742',
