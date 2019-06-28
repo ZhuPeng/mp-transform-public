@@ -213,12 +213,3 @@ for (i=0; i<directTransform.length; i++) {
 }
 if (Count.length == 0) {alert('无可转换为小程序的链接')}
 else {alert('转换小程序链接成功：\n'+Count.join('\n'))}
-
-// origin link
-// <span md-inline="autolink" class="md-link" style="box-sizing: border-box;">https://github.com/projectfluent/fluent</span>
-
-// ReadHub
-// <a class="weapp_text_link" style="font-size:17px;" data-miniprogram-appid="wxd83c7f07a0b00f1b" data-miniprogram-path="pages/detail?id=7NgjG2U66fX" data-miniprogram-nickname="Readhub" href="" data-miniprogram-type="text" data-miniprogram-servicetype="0" _href="">readhub</a>
-
-// mini-programe link
-// <span md-inline="autolink" class="md-link" style="box-sizing: border-box;"><span style="color: rgb(93, 94, 93);font-family: TeXGyreAdventor, &quot;Century Gothic&quot;, &quot;Yu Gothic&quot;, Raleway, STHeiti, sans-serif;font-size: 16px;orphans: 4;white-space: pre-wrap;background-color: rgb(255, 255, 255);"><a class="weapp_text_link" style="font-size:16px;" data-miniprogram-appid="wx6204a7df95c7fb21" data-miniprogram-path="https://github.com/transloadit/uppy" data-miniprogram-nickname="GitHub Trending Hub" href="" data-miniprogram-type="text" data-miniprogram-servicetype="">https://github.com/transloadit/uppy</a></span></span>
