@@ -132,13 +132,13 @@ var directTransform = [{
     // https://juejin.im/post/5d147765f265da1bb003d0dc
     genMPUrl: GenFormatOneMPUrl('post', 'pages/post/post?type=post&id='),
 }, {
-    nickname: 'V2EX精美版',
-    appid: 'wx0677aeba5eee65fe',
+    nickname: 'V2EX For You',
+    appid: 'wx11ec5528954b2d1a',
     urlPrefix: 'https://www.v2ex.com',
-    indexPage: 'pages/home/index',
+    indexPage: 'pages/index/index',
     // https://www.v2ex.com/t/578260#reply22
     genMPUrl: function (meta, url) {
-        var p = GenFormatOneMPUrl('t', 'pages/home/detail?id=')(meta, url)
+        var p = GenFormatOneMPUrl('t', 'pages/topic/index?topicId=')(meta, url)
         if (p.indexOf('#') != -1 ){
             p = p.slice(0, p.indexOf('#'))
         }

@@ -27,8 +27,8 @@
 * [百度网盘](https://pan.baidu.com): 分享链接为 https://pan.baidu.com/s/<随机字符串>，需要在末尾添加 #提取码#0#0，例如：https://pan.baidu.com/s/1EuJiHB-q2Lggrt28cjQISA#3tb7#0#0 
 * [36氪Lite](https://36kr.com)
 * [掘金第三方版](https://juejin.im)
-* [V2EX精美版](https://www.v2ex.com): 小程序目前存在跳转问题
-      
+* [V2EX For You](https://www.v2ex.com)
+z      
 
 其他小程序的支持正在开发中，如果你的小程序希望接入，欢迎扫描如下二维码联系作者。
 
