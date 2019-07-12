@@ -218,4 +218,9 @@ for (i=0; i<directTransform.length; i++) {
     })
 }
 if (Count.length == 0) {alert('无可转换为小程序的链接')}
-else {alert('转换小程序链接成功：\n'+Count.join('\n'))}
+else {
+    alert('转换小程序链接成功：\n'+Count.join('\n')); 
+    if (Count.length > 50) {
+        alert('转换小程序链接超过50个，微信平台限制了最多50个')
+    }
+}
