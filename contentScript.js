@@ -144,6 +144,13 @@ var directTransform = [{
         }
         return p
     }
+}, {
+    nickname: '豆瓣评分',
+    appid: 'wx2f9b06c1de1ccfca',
+    urlPrefix: 'https://movie.douban.com',
+    indexPage: 'pages/index/index',
+    // https://movie.douban.com/subject/26794435/?from=showing
+    genMPUrl: GenFormatOneMPUrl('subject', 'pages/subject/subject?type=movie&id='),
 }]
 
 function DefaultGenMPUrl(meta, url) {
