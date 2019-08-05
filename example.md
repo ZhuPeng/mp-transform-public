@@ -41,3 +41,5 @@ https://github.com/ZhuPeng/mp-githubtrending
 [https://www.v2ex.com/t/578192#reply103](https://www.v2ex.com/t/578192#reply103)
 
 [https://movie.douban.com/subject/26794435/](https://movie.douban.com/subject/26794435/)
+
+[https://book.douban.com/subject/33442274/?icn=index-latestbook-subject](https://book.douban.com/subject/33442274/?icn=index-latestbook-subject)

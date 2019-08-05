@@ -32,7 +32,7 @@ Chrome 应用商店安装：[链接](https://chrome.google.com/webstore/detail/%
 * [36氪Lite](https://36kr.com)
 * [掘金第三方版](https://juejin.im)
 * [V2EX For You](https://www.v2ex.com)
-* [豆瓣电影](https://movie.douban.com/)
+* [豆瓣电影](https://movie.douban.com/)、[豆瓣读书](https://book.douban.com/)
 
 其他小程序的支持正在开发中，如果你的小程序希望接入，欢迎扫描如下二维码联系作者。
 

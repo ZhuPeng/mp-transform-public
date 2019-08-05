@@ -151,6 +151,13 @@ var directTransform = [{
     indexPage: 'pages/index/index',
     // https://movie.douban.com/subject/26794435/?from=showing
     genMPUrl: GenFormatOneMPUrl('subject', 'pages/subject/subject?type=movie&id='),
+}, {
+    nickname: '豆瓣评分',
+    appid: 'wx2f9b06c1de1ccfca',
+    urlPrefix: 'https://book.douban.com',
+    indexPage: 'pages/index/index',
+    // https://book.douban.com/subject/33442274/?icn=index-latestbook-subject
+    genMPUrl: GenFormatOneMPUrl('subject', 'pages/subject/subject?type=book&id='),
 }]
 
 function DefaultGenMPUrl(meta, url) {
