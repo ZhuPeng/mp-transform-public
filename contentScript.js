@@ -133,7 +133,7 @@ var directTransform = [{
     genMPUrl: GenFormatOneMPUrl('post', 'pages/post/post?type=post&id='),
 }, {
     nickname: 'V2EX For You',
-    appid: 'wx11ec5528954b2d1a',
+    appid: 'wx1b979cda6b085993',
     urlPrefix: 'https://www.v2ex.com',
     indexPage: 'pages/index/index',
     // https://www.v2ex.com/t/578260#reply22
