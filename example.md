@@ -45,3 +45,5 @@ https://github.com/ZhuPeng/mp-githubtrending
 [https://book.douban.com/subject/33442274/?icn=index-latestbook-subject](https://book.douban.com/subject/33442274/?icn=index-latestbook-subject)
 
 [https://music.douban.com/subject/34780472/](https://music.douban.com/subject/34780472/)
+
+[https://new.qq.com/omn/20190812/20190812A0QBK300.html](https://new.qq.com/omn/20190812/20190812A0QBK300.html)

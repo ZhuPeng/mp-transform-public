@@ -165,11 +165,31 @@ var directTransform = [{
     indexPage: 'pages/index/index',
     // https://music.douban.com/subject/34780472/
     genMPUrl: GenFormatOneMPUrl('subject', 'pages/subject/subject?type=music&id='),
+}, {
+    nickname: '腾讯新闻',
+    appid: 'wxb10c47503e8c8e01',
+    urlPrefix: 'https://new.qq.com',
+    indexPage: 'pages/main_page/main_page',
+    // https://new.qq.com/omn/TWF20190/TWF2019081200847600.html
+    genMPUrl: GenFormatLastPathMPUrl('pages/normal/index?atype=0&id='),
 }]
 
 function DefaultGenMPUrl(meta, url) {
     if (url == meta.urlPrefix) {return meta.indexPage}
     return url
+}
+
+// url like: <prefix>/xxx/yyy/zzz/<last>.<sufix>
+function GenFormatLastPathMPUrl(path) {
+    function genMPUrl(meta, url) {
+        var idx = url.indexOf(meta.urlPrefix)
+        if (idx == -1) {return meta.indexPage }
+        var arr = url.split('/')
+        var lastpath = arr[arr.length-1].split('.')[0]
+        if (lastpath == "") {return meta.indexPage} 
+        return path + lastpath
+    }
+    return genMPUrl
 }
 
 // url like: <prefix>/<gap>/<id>, such as: https://zhuanlan.zhihu.com/p/63501230
