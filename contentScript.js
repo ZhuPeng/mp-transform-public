@@ -3,6 +3,7 @@ var allSpans = frame && frame.contentWindow ? frame.contentWindow.document.getEl
 // config
 var MPTag = 'data-miniprogram-appid='
 var Count = []
+
 var directTransform = [{
     nickname: 'GitHub Trending Hub',
     appid: 'wx6204a7df95c7fb21',
@@ -166,6 +167,24 @@ var directTransform = [{
     // https://music.douban.com/subject/34780472/
     genMPUrl: GenFormatOneMPUrl('subject', 'pages/subject/subject?type=music&id='),
 }]
+directTransform.push({
+    nickname: '文章助手',
+    appid: 'wxae224e32990b0036',
+    indexPage: 'pages/index',
+    urlPrefix: 'https://',
+    genMPUrl: function(meta, url) {
+        return '/pages/a?link=' + url + '&title=链接标题'
+    },
+})
+directTransform.push({
+    nickname: '文章助手',
+    appid: 'wxae224e32990b0036',
+    indexPage: 'pages/index',
+    urlPrefix: 'http://',
+    genMPUrl: function(meta, url) {
+        return '/pages/a?link=' + url + '&title=链接标题'
+    },
+})
 
 function DefaultGenMPUrl(meta, url) {
     if (url == meta.urlPrefix) {return meta.indexPage}
@@ -229,13 +248,11 @@ for (i=0; i<directTransform.length; i++) {
             var fch = item.firstChild
             if (fch.href && fch.href.startsWith(urlPrefix)) {
                 item.innerHTML = mpLink(trans, fch.href, fch.innerText)
-                return true
             }
             if (fch.innerText && fch.innerText.startsWith(urlPrefix)) {
                 item.innerHTML = mpLink(trans, fch.innerText, fch.innerText)
             }
         }
-        return true
     })
 }
 if (Count.length == 0) {alert('无可转换为小程序的链接')}
