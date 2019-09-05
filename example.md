@@ -46,5 +46,6 @@ https://github.com/ZhuPeng/mp-githubtrending
 
 [https://music.douban.com/subject/34780472/](https://music.douban.com/subject/34780472/)
 
-<https://www.baidu.com/>
+[https://new.qq.com/omn/20190812/20190812A0QBK300.html](https://new.qq.com/omn/20190812/20190812A0QBK300.html)
 
+<https://www.baidu.com/>
