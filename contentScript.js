@@ -227,7 +227,8 @@ function GenFormatOneMPUrl(gap, path) {
 
 function genFilterFunc(urlPrefix) {
     return function(item) {
-        if (!item.innerHTML || item.innerHTML.indexOf(urlPrefix)==-1 || item.innerHTML.indexOf(MPTag)!=-1) {return false}
+        var wechat = 'https://mp.weixin.qq.com'
+        if (!item.innerHTML || item.innerHTML.indexOf(urlPrefix)==-1 || item.innerHTML.indexOf(MPTag)!=-1 || item.innerHTML.indexOf(wechat) != -1) {return false}
         return true 
     }
 }
