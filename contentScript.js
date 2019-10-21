@@ -5,12 +5,12 @@ var MPTag = 'data-miniprogram-appid='
 var Count = []
 
 var directTransform = [{
-    nickname: 'GitHub Trending Hub',
-    appid: 'wx6204a7df95c7fb21',
-    indexPage: 'pages/github/index',
-    urlPrefix: 'https://github.com',
-    genMPUrl: DefaultGenMPUrl,
-}, {
+//     nickname: 'GitHub Trending Hub',
+//     appid: 'wx6204a7df95c7fb21',
+//     indexPage: 'pages/github/index',
+//     urlPrefix: 'https://github.com',
+//     genMPUrl: DefaultGenMPUrl,
+// }, {
     nickname: 'Readhub',
     appid: 'wxd83c7f07a0b00f1b',
     urlPrefix: 'https://readhub.cn/topic',
