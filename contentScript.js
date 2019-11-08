@@ -179,8 +179,8 @@ directTransform.push({
     appid: 'wxae224e32990b0036',
     indexPage: 'pages/index',
     urlPrefix: 'https://',
-    genMPUrl: function(meta, url) {
-        return '/pages/a?link=' + url + '&title=链接标题'
+    genMPUrl: function(meta, url, text) {
+        return '/pages/a?link=' + url + '&title=' + text
     },
 })
 directTransform.push({
@@ -188,8 +188,8 @@ directTransform.push({
     appid: 'wxae224e32990b0036',
     indexPage: 'pages/index',
     urlPrefix: 'http://',
-    genMPUrl: function(meta, url) {
-        return '/pages/a?link=' + url + '&title=链接标题'
+    genMPUrl: function(meta, url, text) {
+        return '/pages/a?link=' + url + '&title=' + text
     },
 })
 
@@ -246,7 +246,7 @@ function filterArr(arr, func) {
 
 function mpLink(transItem, url, text) {
     Count.push(transItem.nickname + ': ' + url)
-    url = transItem.genMPUrl(transItem, url)
+    url = transItem.genMPUrl(transItem, url, text)
     return '<span style="color: rgb(93, 94, 93);font-family: TeXGyreAdventor, &quot;Century Gothic&quot;, &quot;Yu Gothic&quot;, Raleway, STHeiti, sans-serif;font-size: 16px;orphans: 4;white-space: pre-wrap;background-color: rgb(255, 255, 255);"><a class="weapp_text_link" style="font-size:16px;" data-miniprogram-appid="' + transItem.appid + '" data-miniprogram-path="' + url + '" data-miniprogram-nickname="' + transItem.nickname + '" href="" data-miniprogram-type="text" data-miniprogram-servicetype="">' + text + '</a></span>'
 }
 
