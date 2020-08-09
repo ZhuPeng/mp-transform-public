@@ -15,6 +15,10 @@ var directTransform = [{
         if (owner == "") { return 'pages/github/index'}
         else if (repo == "") { return 'pages/account/account?owner=' + owner }
         else if (filepath == "") { return 'pages/readme/readme?repo=' + owner + '/' + repo }
+        else if (filepath.startsWith('issues/') || filepath.startsWith('pull/')) {
+            var issue = 'https://api.github.com/repos/' + owner + '/' + repo + '/' + filepath.replace('pull/', 'issues/')
+            return '/pages/issue/issue?issue='+issue
+        }
         else { return 'pages/gitfile/gitfile?file=' + filepath + '&owner=' + owner + '&repo=' + repo }
     },
 }, {
