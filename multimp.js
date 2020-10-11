@@ -16,6 +16,9 @@ function Navi(url) {
   var trans = directTransform[match]
   var urlPrefix = trans.urlPrefix
   var nickname = trans.nickname
+  if (url[url.length-1] == '/') {
+      url = url.slice(0, url.length-1)
+  }
   var to = trans.genMPUrl(trans, url)
   console.log('Navi url: ', url, ' to ', nickname, to)
   wx.navigateToMiniProgram({
@@ -31,11 +34,22 @@ function Navi(url) {
 }
 
 var directTransform = [{
-    nickname: 'GitHub Trending Hub',
-    appid: 'wx6204a7df95c7fb21',
-    indexPage: 'pages/github/index',
+    nickname: '开源Books',
+    appid: 'wxe60c5750c87916e0',
+    indexPage: 'pages/bloglist/bloglist',
     urlPrefix: 'https://github.com',
-    genMPUrl: DefaultGenMPUrl,
+    genMPUrl: function(meta, url) {
+        var [owner, repo, filepath] = parseGitHub(url)
+        console.log("parseGitHub url:", owner, repo, filepath)
+        if (owner == "") { return 'pages/github/index'}
+        else if (repo == "") { return 'pages/account/account?owner=' + owner }
+        else if (filepath == "") { return 'pages/readme/readme?repo=' + owner + '/' + repo }
+        else if (filepath.startsWith('issues/') || filepath.startsWith('pull/')) {
+            var issue = 'https://api.github.com/repos/' + owner + '/' + repo + '/' + filepath.replace('pull/', 'issues/')
+            return '/pages/issue/issue?issue='+issue
+        }
+        else { return 'pages/gitfile/gitfile?file=' + filepath + '&owner=' + owner + '&repo=' + repo }
+    },
 }, {
     nickname: 'Readhub',
     appid: 'wxd83c7f07a0b00f1b',
