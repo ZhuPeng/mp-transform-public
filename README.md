@@ -8,7 +8,7 @@
 
 Chrome 应用商店安装：[链接](https://chrome.google.com/webstore/detail/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8E%92%E7%89%88%E5%B0%8F%E5%8A%A9%E6%89%8B/aigggkimjmfijjfbhonlblgajnoilbbb)
 
-网络不能访问可以下载 Chrome 插件(更新不及时，建议通过应用商店安装)：[下载链接](https://7465-test-3c9b5e-1258459492.tcb.qcloud.la/common/mp-transform.zip)，解压zip 压缩包，将 crx 后缀文件拖入 Chrome 浏览器，参考离线安装方法：[图文详解Chrome插件离线安装方法 - 2019最新终极指南](<http://chromecj.com/utilities/2019-01/1791.html>)，安装完成后，浏览器右上角将出现如下 Logo。
+安装完成后，浏览器右上角将出现如下 Logo。
 
 ![](https://7465-test-3c9b5e-1258459492.tcb.qcloud.la/common/link-128.png)
 
