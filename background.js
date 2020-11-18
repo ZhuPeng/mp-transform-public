@@ -5,7 +5,7 @@ chrome.browserAction.onClicked.addListener(function(tab) {
         chrome.tabs.executeScript({
             file: 'contentScript.js'
         });
-    } if (tab.url.startsWith("https://www.instagram.com/")) {
+    } else if (tab.url.startsWith("https://www.instagram.com/")) {
         chrome.tabs.executeScript({
             file: 'instagram.js'
         });
