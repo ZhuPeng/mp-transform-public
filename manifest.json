@@ -1,6 +1,6 @@
 {
    "name": "小程序排版小助手",
-   "version": "2.7",
+   "version": "2.8",
    "description": "微信公众号文章一键轻松排版小程序链接。",
    "manifest_version": 2,
    "homepage_url": "https://github.com/ZhuPeng/mp-transform-public",
@@ -10,7 +10,7 @@
        "64": "img/link-64.png",
        "128": "img/link-128.png"
    },  
-   "permissions": ["https://mp.weixin.qq.com/*"],
+   "permissions": ["https://mp.weixin.qq.com/*", "https://www.instagram.com/*"],
    "browser_action": {},
    "background": {
        "scripts": ["background.js"],
