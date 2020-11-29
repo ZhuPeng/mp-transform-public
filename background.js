@@ -5,11 +5,15 @@ chrome.browserAction.onClicked.addListener(function(tab) {
         chrome.tabs.executeScript({
             file: 'contentScript.js'
         });
-    } else if (tab.url.startsWith("https://www.instagram.com/")) {
+    } else if (tab.url.startsWith("https://www.instagram.com/tv/")) {
         chrome.tabs.executeScript({
             file: 'instagram.js'
         });
+    } else if (tab.url.indexOf("facebook.com") > -1 || tab.url.indexOf("youtube.com") > -1) {
+        chrome.tabs.executeScript({
+            file: 'video.js'
+        });
     } else {
-        alert("插件只在微信公众平台（" + scope + "）生效")
+        alert("插件在不支持的页面（" + scope + "）运行")
     }
 });

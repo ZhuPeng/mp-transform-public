@@ -10,7 +10,7 @@
        "64": "img/link-64.png",
        "128": "img/link-128.png"
    },  
-   "permissions": ["https://mp.weixin.qq.com/*", "https://www.instagram.com/*"],
+   "permissions": ["https://*/*"],
    "browser_action": {},
    "background": {
        "scripts": ["background.js"],
