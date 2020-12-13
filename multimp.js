@@ -51,6 +51,12 @@ var directTransform = [{
         else { return 'pages/gitfile/gitfile?file=' + filepath + '&owner=' + owner + '&repo=' + repo }
     },
 }, {
+    nickname: 'iDayDayUP',
+    appid: 'wx482958efb057c5a7',
+    indexPage: 'pages/daily/daily',
+    urlPrefix: 'https://idaydayup.com',
+    genMPUrl: DefaultIndexMPWithPara,
+}, {
     nickname: 'Readhub',
     appid: 'wxd83c7f07a0b00f1b',
     urlPrefix: 'https://readhub.cn/topic',
@@ -222,6 +228,11 @@ function DefaultGenMPUrl(meta, url) {
 
 function isGitHubPage(url) {
       return url.startsWith("https://github.com/") || url.startsWith("http://github.com/")
+}
+
+function DefaultIndexMPWithPara(meta, url) {
+    var p = url.slice(meta.urlPrefix.length, url.length)
+    return meta.indexPage + p
 }
 
 function parseGitHub(url) {
