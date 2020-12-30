@@ -12,7 +12,11 @@
 
    目前支持 Instagram、YouTube 等。使用方式非常的简单，在浏览器访问你要下载的视频，点击 Chrome 右上角的插件图标即可。
 
-更多其他使用场景欢迎提供建议或直接 Pull Requests。
+更多其他使用场景欢迎提供建议或直接 Pull Requests。扫码关注如下微信公众号，获取工具定期更新推送。
+
+![wechat](https://7465-test-3c9b5e-1258459492.tcb.qcloud.la/common/ultrabot-qrcode.png)
+
+
 
 ## 安装和使用方式
 
