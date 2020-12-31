@@ -41,7 +41,7 @@ var directTransform = [{
     genMPUrl: function(meta, url) {
         var [owner, repo, filepath] = parseGitHub(url)
         console.log("parseGitHub url:", owner, repo, filepath)
-        if (owner == "") { return 'pages/github/index'}
+        if (owner == "") { return meta.indexPage}
         else if (repo == "") { return 'pages/account/account?owner=' + owner }
         else if (filepath == "") { return 'pages/readme/readme?repo=' + owner + '/' + repo }
         else if (filepath.startsWith('issues/') || filepath.startsWith('pull/')) {
@@ -55,6 +55,12 @@ var directTransform = [{
     appid: 'wx482958efb057c5a7',
     indexPage: 'pages/daily/daily',
     urlPrefix: 'https://idaydayup.com',
+    genMPUrl: DefaultIndexMPWithPara,
+}, {
+    nickname: '开源话题',
+    appid: 'wx0b48bcbd26917a62',
+    indexPage: 'pages/bloglist/bloglist',
+    urlPrefix: 'https://opensourcetopic.com',
     genMPUrl: DefaultIndexMPWithPara,
 }, {
     nickname: 'Readhub',
