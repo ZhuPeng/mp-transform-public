@@ -5,7 +5,7 @@ var MPTag = 'data-miniprogram-appid='
 var Count = []
 
 var directTransform = [{
-    nickname: '开源Books',
+    nickname: '开源技术栈',
     appid: 'wxe60c5750c87916e0',
     indexPage: 'pages/bloglist/bloglist',
     urlPrefix: 'https://github.com',
@@ -21,6 +21,14 @@ var directTransform = [{
         }
         else { return 'pages/gitfile/gitfile?file=' + filepath + '&owner=' + owner + '&repo=' + repo }
     },
+}, {
+    nickname: '开源技术栈',
+    appid: 'wxe60c5750c87916e0',
+    indexPage: 'pages/bloglist/bloglist',
+    urlPrefix: '/pages/gitdir/gitdir',
+    genMPUrl: function(meta, url) {
+        return url
+    }
 }, {
     nickname: 'iDayDayUP',
     appid: 'wx482958efb057c5a7',
