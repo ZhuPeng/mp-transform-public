@@ -25,9 +25,9 @@ var directTransform = [{
     nickname: '开源技术栈',
     appid: 'wxe60c5750c87916e0',
     indexPage: 'pages/bloglist/bloglist',
-    urlPrefix: '/pages/gitdir/gitdir',
+    urlPrefix: 'https://mp.weixin.qq.com/pages/gitdir/gitdir',
     genMPUrl: function(meta, url) {
-        return url
+        return url.slice('https://mp.weixin.qq.com/'.length, url.length)
     }
 }, {
     nickname: 'iDayDayUP',
