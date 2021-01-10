@@ -4,6 +4,20 @@ module.exports = {
 
 // 在微信小程序中使用
 function Navi(url) {
+  var [appid, to] = _Navi(url)
+  wx.navigateToMiniProgram({
+    appId: appid,
+    path: to,
+    success(res) {
+      console.log('Navi success:', res)
+    },
+    fail(res) {
+      console.log('Navi fail:', res)
+    }
+  })
+}
+
+function _Navi(url) {
   var match = -1
   for (var i = 0; i < directTransform.length; i++) {
     var trans = directTransform[i]
@@ -20,17 +34,14 @@ function Navi(url) {
       url = url.slice(0, url.length-1)
   }
   var to = trans.genMPUrl(trans, url)
-  console.log('Navi url: ', url, ' to ', nickname, to)
-  wx.navigateToMiniProgram({
-    appId: trans.appid,
-    path: to,
-    success(res) {
-      console.log('Navi success:', res)
-    },
-    fail(res) {
-      console.log('Navi fail:', res)
-    }
-  })
+  console.log('Navi url: ', url, ' to ', nickname, ' appid: ', trans.appid, to)
+  return [trans.appid, to]
+}
+
+function Link(url) {
+  var [appid, to] = _Navi(url)
+  var link =  '<a data-miniprogram-appid="' + appid + '" data-miniprogram-path="' + to + '" href="">点击</a>'
+  console.log(link)
 }
 
 var directTransform = [{
@@ -287,3 +298,5 @@ function GenFormatOneMPUrl(gap, path) {
     }
     return genMPUrl
 }
+
+// Link('https://github.com/azl397985856/leetcode/blob/master/README.md')
