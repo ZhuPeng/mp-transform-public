@@ -10,7 +10,7 @@
        "64": "img/link-64.png",
        "128": "img/link-128.png"
    },  
-   "permissions": ["activeTab"],
+   "permissions": ["activeTab", "clipboardWrite"],
    "browser_action": {},
    "background": {
        "scripts": ["background.js"],
