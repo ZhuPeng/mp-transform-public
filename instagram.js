@@ -16,6 +16,11 @@ for (i=0; i<scripts.length; i++) {
     console.log(myArray);
     var str = myArray[0]
     var url = str.slice(tag.length, str.length-1).replace(/\\u0026/g, "&")
+    var domain = (new URL(url)).hostname;
+    console.log('domain url', domain)
+    if (domain.indexOf('scontent-frx5-1.cdninstagram.com') > -1) {
+        url = url.replace(domain, 'scontent.cdninstagram.com')
+    }
     alert("下载视频链接：" + url)
     window.open(url)
 }
