@@ -5,7 +5,7 @@ var MPTag = 'data-miniprogram-appid='
 var Count = []
 
 var directTransform = [{
-    nickname: '开源技术栈',
+    nickname: 'GitHub精选',
     appid: 'wxe60c5750c87916e0',
     indexPage: 'pages/bloglist/bloglist',
     urlPrefix: 'https://github.com',
@@ -22,7 +22,7 @@ var directTransform = [{
         else { return 'pages/gitfile/gitfile?file=' + filepath + '&owner=' + owner + '&repo=' + repo }
     },
 }, {
-    nickname: '开源技术栈',
+    nickname: 'GitHub精选',
     appid: 'wxe60c5750c87916e0',
     indexPage: 'pages/bloglist/bloglist',
     urlPrefix: 'https://mp.weixin.qq.com/pages/gitdir/gitdir',
@@ -200,21 +200,21 @@ var directTransform = [{
     genMPUrl: GenFormatLastPathMPUrl('pages/normal/index?atype=0&id='),
 }]
 directTransform.push({
-    nickname: '文章助手',
-    appid: 'wxae224e32990b0036',
-    indexPage: 'pages/index',
+    nickname: 'GitHub精选',
+    appid: 'wxe60c5750c87916e0',
+    indexPage: 'pages/bloglist/bloglist',
     urlPrefix: 'https://',
     genMPUrl: function(meta, url, text) {
-        return '/pages/a?link=' + url + '&title=' + text
+        return 'pages/copy/copy?url=' + url
     },
 })
 directTransform.push({
-    nickname: '文章助手',
-    appid: 'wxae224e32990b0036',
-    indexPage: 'pages/index',
+    nickname: 'GitHub精选',
+    appid: 'wxe60c5750c87916e0',
+    indexPage: 'pages/bloglist/bloglist',
     urlPrefix: 'http://',
     genMPUrl: function(meta, url, text) {
-        return '/pages/a?link=' + url + '&title=' + text
+        return 'pages/copy/copy?url=' + url
     },
 })
 
