@@ -66,6 +66,18 @@ var directTransform = [{
         return 'pages/video/video?avid=' + id
     },
 }, {
+    nickname: '哔哩哔哩',
+    appid: 'wx7564fd5313d24844',
+    urlPrefix: 'https://www.bilibili.com/BV',
+    indexPage: 'pages/index/index',
+    genMPUrl: GenBilibiliURL,
+}, {
+    nickname: '哔哩哔哩',
+    appid: 'wx7564fd5313d24844',
+    urlPrefix: 'https://www.bilibili.com/video/BV',
+    indexPage: 'pages/index/index',
+    genMPUrl: GenBilibiliURL,
+}, {
     nickname: '腾讯视频',
     appid: 'wxa75efa648b60994b',
     urlPrefix: 'https://v.qq.com/x/cover/',
@@ -230,6 +242,36 @@ function isGitHubPage(url) {
 function DefaultIndexMPWithPara(meta, url) {
     var p = url.slice(meta.urlPrefix.length, url.length)
     return meta.indexPage + p
+}
+
+function GenBilibiliURL(meta, url) {
+    var idx = url.indexOf(meta.urlPrefix)
+    if (idx == -1) {return meta.indexPage }
+    // pages/video/video?avid=54809781
+    // https://www.bilibili.com/video/BV1dq4y127TF
+    var qmark = url.indexOf('?')
+    var start = meta.urlPrefix.length+idx
+    var id = url.slice(start, qmark!=-1&&qmark>start ? qmark : url.length)
+    if (id == "" || id == "/") { return meta.indexPage }
+
+    // quote: https://github.com/SocialSisterYi/bilibili-API-collect/blob/master/other/bvid_desc.md
+    var x = "BV" + id
+    console.log('bvid:', x)
+    var table = "fZodR9XQDSUm21yCkr6zBqiveYah8bt4xsWpHnJE7jL5VG3guMTKNPAwcF"
+    var tr = {} 
+    for (var i=0; i<58; i++) {
+        tr[table[i]] = i
+    }
+    var s = [11, 10, 3, 8, 4, 6] 
+    var xor = 177451812 // 固定异或值
+    var add = 8728348608 //固定加法值
+
+    var r = 0
+    for (var i=0; i<6; i++) {
+        r += tr[x[s[i]]] * 58 ** i
+    }
+    var aid = (r - add) ^ xor
+    return 'pages/video/video?avid=' + aid
 }
 
 function parseGitHub(url) {
