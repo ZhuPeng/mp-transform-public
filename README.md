@@ -66,12 +66,3 @@ Chrome 应用商店安装：[链接](https://chrome.google.com/webstore/detail/%
 ## FAQ
 
 有任何问题欢迎提交 Issue 和 PR，详情：[https://github.com/ZhuPeng/mp-transform-public](https://github.com/ZhuPeng/mp-transform-public)
-
-
-
-
-## 赞赏是一种力量
-
-| 微信 | 支付宝 |
-| :---: | :----: |
-| ![](https://7465-test-3c9b5e-1258459492.tcb.qcloud.la/common/Wechat-zanshang.jpeg) | ![](https://7465-test-3c9b5e-1258459492.tcb.qcloud.la/common/alipay-qrcode.jpeg) |
