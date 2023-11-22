@@ -15,5 +15,9 @@
    "background": {
        "scripts": ["background.js"],
        "persistent": false
-   }
+   },
+   "content_scripts": [{
+       "matches": ["https://itra.run/RunnerSpace/RaceResults/*"],
+       "js": ["itra.js"]
+  }]
 }
