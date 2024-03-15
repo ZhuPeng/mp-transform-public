@@ -1,5 +1,3 @@
-[![HitCount](http://hits.dwyl.io/ZhuPeng/mp-transform-public.svg)](http://hits.dwyl.io/ZhuPeng/mp-transform-public)
-
 你们是不是在使用浏览器的时候，会在某些页面有些例行的操作，而这些操作如果能够一键执行，能够极大的提升你的效率。我们通过 Chrome 插件提供的能力，开发了*链接小助手*，以下就是目前 *链接小助手* 支持的功能：
 
 1. 公众号小程序链接自动转换功能
@@ -14,7 +12,7 @@
 
 更多其他使用场景欢迎提供建议或直接 Pull Requests。扫码关注如下微信公众号，获取工具定期更新推送。
 
-![wechat](https://7465-test-3c9b5e-1258459492.tcb.qcloud.la/common/ultrabot-qrcode.png)
+![wechat](https://raw.githubusercontent.com/ZhuPeng/pic/master/mac/compress_github_qrcode.png)
 
 
 
@@ -24,7 +22,7 @@ Chrome 应用商店安装：[链接](https://chrome.google.com/webstore/detail/%
 
 安装完成后，浏览器右上角将出现如下 Logo。
 
-![](https://7465-test-3c9b5e-1258459492.tcb.qcloud.la/common/link-128.png)
+![](img/link-128.png)
 
 安装完成之后，进入微信公众号文章编辑页面，操作效果如下：
 
@@ -52,7 +50,7 @@ Chrome 应用商店安装：[链接](https://chrome.google.com/webstore/detail/%
 
 其他小程序的支持正在开发中，如果你的小程序希望接入，欢迎扫描如下二维码联系作者。
 
-![](https://7465-test-3c9b5e-1258459492.tcb.qcloud.la/mp-githubtrending/wechat_xiaopeng.jpeg)
+![wechat](https://raw.githubusercontent.com/ZhuPeng/pic/master/mac/compress_github_qrcode.png)
 
 
 
