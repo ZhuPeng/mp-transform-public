@@ -253,25 +253,25 @@ function GenBilibiliURL(meta, url) {
     var start = meta.urlPrefix.length+idx
     var id = url.slice(start, qmark!=-1&&qmark>start ? qmark : url.length)
     if (id == "" || id == "/") { return meta.indexPage }
+    var bvid = "BV" + id.replace(/\//, '')
+    console.log('bvid:', bvid)
 
-    // quote: https://github.com/SocialSisterYi/bilibili-API-collect/blob/master/other/bvid_desc.md
-    var x = "BV" + id
-    console.log('bvid:', x)
-    var table = "fZodR9XQDSUm21yCkr6zBqiveYah8bt4xsWpHnJE7jL5VG3guMTKNPAwcF"
-    var tr = {} 
-    for (var i=0; i<58; i++) {
-        tr[table[i]] = i
-    }
-    var s = [11, 10, 3, 8, 4, 6] 
-    var xor = 177451812 // 固定异或值
-    var add = 8728348608 //固定加法值
+    // quote: https://github.com/SocialSisterYi/bilibili-API-collect/blob/master/docs/misc/bvid_desc.md
+    const XOR_CODE = 23442827791579n;
+    const MASK_CODE = 2251799813685247n;
+    const MAX_AID = 1n << 51n;
+    const BASE = 58n;
+    
+    const data = 'FcwAPNKTMug3GV5Lj7EJnHpWsx4tb8haYeviqBz6rkCy12mUSDQX9RdoZf';
 
-    var r = 0
-    for (var i=0; i<6; i++) {
-        r += tr[x[s[i]]] * 58 ** i
-    }
-    var aid = (r - add) ^ xor
-    return 'pages/video/video?avid=' + aid
+    const bvidArr = Array.from(bvid);
+    [bvidArr[3], bvidArr[9]] = [bvidArr[9], bvidArr[3]];
+    [bvidArr[4], bvidArr[7]] = [bvidArr[7], bvidArr[4]];
+    bvidArr.splice(0, 3);
+    const tmp = bvidArr.reduce((pre, bvidChar) => pre * BASE + BigInt(data.indexOf(bvidChar)), 0n);
+    var avid = Number((tmp & MASK_CODE) ^ XOR_CODE);
+
+    return 'pages/video/video?avid=' + avid
 }
 
 function parseGitHub(url) {
