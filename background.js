@@ -13,6 +13,8 @@ chrome.browserAction.onClicked.addListener(function(tab) {
         chrome.tabs.executeScript({file: 'getyarn.js'});
     } else if (tab.url.indexOf("getyarn.io/yarn-find?text=") > -1) {
         chrome.tabs.executeScript({file: 'batch_getyarn.js'});
+    } else if (tab.url.indexOf("https://vimeo.com/") > -1) {
+        chrome.tabs.executeScript({file: 'savethevideo-com.js'});
     } else if (tab.url.indexOf("weibo.com") > -1) {
         chrome.tabs.executeScript({file: 'cookie.js'});
     } else {
