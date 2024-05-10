@@ -1,6 +1,6 @@
 {
    "name": "小程序排版小助手",
-   "version": "2.9",
+   "version": "3.0",
    "description": "微信公众号文章一键轻松排版小程序链接。",
    "manifest_version": 2,
    "homepage_url": "https://github.com/ZhuPeng/mp-transform-public",
