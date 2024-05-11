@@ -60,6 +60,9 @@ var Handlers = [{
     execScript: 'savethevideo-com.js',
     urls: ['https://vimeo.com/'],
 }, {
+    execScript: 'snapany-com.js',
+    urls: ['www.bilibili.com/video/'],
+}, {
     execScript: 'cookie.js',
     urls: ['weibo.com'],
 }]
@@ -73,7 +76,9 @@ chrome.browserAction.onClicked.addListener(function(tab) {
         for (var j = 0; j < h.urls.length; j++) {
             var url = h.urls[j];
             if (tab.url.indexOf(url) > -1) {
-                chrome.tabs.executeScript({file: h.execScript});
+                chrome.tabs.executeScript(null, {file: "util.js"}, function() {
+                    chrome.tabs.executeScript(null, {file: h.execScript});
+                });
                 return
             }
         }
