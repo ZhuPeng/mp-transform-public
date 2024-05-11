@@ -22,8 +22,7 @@ chrome.identity.getProfileUserInfo(function(userInfo) {
 });
 
 function limitUsage() {
-    const date = new Date().getFullYear();
-    var key = date + 'usageCount'
+    var key = 'usageCount'
     var usageCount = localStorage.getItem(key) || 0;
     usageCount++;
     localStorage.setItem(key, usageCount);
@@ -39,29 +38,55 @@ function limitUsage() {
     return true
 }
 
+var Handlers = [{
+    execScript: 'contentScript.js',
+    urls: ['mp.weixin.qq.com'],
+}, {
+    execScript: 'instagram.js',
+    urls: ['www.instagram.com/tv/'],
+}, {
+    execScript: 'video.js',
+    urls: ['facebook.com', 'youtube.com', 'fb.watch', 'instagram.com'],
+}, {
+    execScript: 'savefrom.js',
+    urls: ['en.savefrom.net'],
+}, {
+    execScript: 'getyarn.js',
+    urls: ['getyarn.io/yarn-clip'],
+}, {
+    execScript: 'batch_getyarn.js',
+    urls: ['getyarn.io/yarn-find?text='],
+}, {
+    execScript: 'savethevideo-com.js',
+    urls: ['https://vimeo.com/'],
+}, {
+    execScript: 'cookie.js',
+    urls: ['weibo.com'],
+}]
+
 chrome.browserAction.onClicked.addListener(function(tab) {
-    var scope = "https://mp.weixin.qq.com/"
     console.log('browserAction Clicked: ' + tab.url);
     if (limitUsage() === true) {return}
 
-    if (tab.url.startsWith(scope)) {
-        chrome.tabs.executeScript({file: 'contentScript.js'});
-    } else if (tab.url.startsWith("https://www.instagram.com/tv/")) {
-        chrome.tabs.executeScript({file: 'instagram.js'});
-    } else if (tab.url.indexOf("facebook.com") > -1 || tab.url.indexOf("youtube.com") > -1 || tab.url.indexOf('fb.watch') > -1 || tab.url.indexOf('instagram.com') > -1) {
-        chrome.tabs.executeScript({file: 'video.js'});
-    } else if (tab.url.indexOf("en.savefrom.net") > -1) {
-        chrome.tabs.executeScript({file: 'savefrom.js'});
-    } else if (tab.url.indexOf("getyarn.io/yarn-clip") > -1) {
-        chrome.tabs.executeScript({file: 'getyarn.js'});
-    } else if (tab.url.indexOf("getyarn.io/yarn-find?text=") > -1) {
-        chrome.tabs.executeScript({file: 'batch_getyarn.js'});
-    } else if (tab.url.indexOf("https://vimeo.com/") > -1) {
-        chrome.tabs.executeScript({file: 'savethevideo-com.js'});
-    } else if (tab.url.indexOf("weibo.com") > -1) {
-        chrome.tabs.executeScript({file: 'cookie.js'});
-    } else {
-        console.log("not support")
-        alert("插件在不支持的页面（" + scope + "）运行")
+    for (var i = 0; i < Handlers.length; i++) {
+        var h = Handlers[i];
+        for (var j = 0; j < h.urls.length; j++) {
+            var url = h.urls[j];
+            if (tab.url.indexOf(url) > -1) {
+                chrome.tabs.executeScript({file: h.execScript});
+                return
+            }
+        }
     }
+
+    var supportUrls = '';
+    for (var i = 0; i < Handlers.length; i++) {
+        var h = Handlers[i];
+        for (var j = 0; j < h.urls.length; j++) {
+            supportUrls += '\n' + h.urls[j];
+        }
+    }
+
+    console.log("not support")
+    alert("插件在不支持的页面运行\n\n\n支持的网站列表如下：" + supportUrls)
 });
