@@ -1,6 +1,6 @@
 {
    "name": "链接小助手",
-   "version": "3.0",
+   "version": "3.1",
    "description": "浏览网页的提升效率小助手，支持一键点击快速下载视频(Ins、YouTube等)、微信公众号文章链接转小程序链接、网页增加特定信息等",
    "manifest_version": 2,
    "homepage_url": "https://github.com/ZhuPeng/mp-transform-public",

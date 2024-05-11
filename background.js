@@ -22,13 +22,13 @@ chrome.identity.getProfileUserInfo(function(userInfo) {
 });
 
 function limitUsage() {
-    const date = new Date().toLocaleDateString();
+    const date = new Date().getFullYear();
     var key = date + 'usageCount'
     var usageCount = localStorage.getItem(key) || 0;
     usageCount++;
     localStorage.setItem(key, usageCount);
 
-    if (usageCount <= 2) {
+    if (usageCount <= 10) {
         return false;
     }
 
