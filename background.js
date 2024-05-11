@@ -12,6 +12,7 @@ chrome.identity.getProfileUserInfo(function(userInfo) {
             if (data.indexOf(email) > -1) {
                 console.log('user is paied')
                 localStorage.setItem('isPaid', true);
+                alert("恭喜你成为尊贵的付费用户，付费用户享有多种权益，详情咨询管理员。\n")
                 return false
             }
         })
@@ -19,7 +20,6 @@ chrome.identity.getProfileUserInfo(function(userInfo) {
             console.log(error);
         });
 });
-
 
 function limitUsage() {
     const date = new Date().toLocaleDateString();
