@@ -63,6 +63,9 @@ var Handlers = [{
     execScript: 'snapany-com.js',
     urls: ['www.bilibili.com/video/'],
 }, {
+    execScript: 'tiqu-cc.js',
+    urls: ['www.xiaohongshu.com/explore/'],
+}, {
     execScript: 'cookie.js',
     urls: ['weibo.com'],
 }]

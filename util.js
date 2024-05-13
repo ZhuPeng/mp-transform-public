@@ -10,3 +10,10 @@ copyToClipboard = str => {
     document.execCommand('copy');
     document.body.removeChild(el);
 };
+
+copyAndRedirect = str => {
+    copyToClipboard(window.location.href)
+    var target = str;
+    alert('已复制视频地址到剪贴板，跳转到 ' + target + ' 开始下载')
+    window.open(target)
+};
