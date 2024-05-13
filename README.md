@@ -18,7 +18,7 @@
 
 ## 安装和使用方式
 
-Chrome 应用商店安装：[链接](https://chrome.google.com/webstore/detail/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8E%92%E7%89%88%E5%B0%8F%E5%8A%A9%E6%89%8B/aigggkimjmfijjfbhonlblgajnoilbbb)
+Chrome 应用商店安装：[链接](https://chrome.google.com/webstore/detail/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8E%92%E7%89%88%E5%B0%8F%E5%8A%A9%E6%89%8B/aigggkimjmfijjfbhonlblgajnoilbbb)，也可以通过 [Release](https://github.com/ZhuPeng/mp-transform-public/releases) 下载进行本地安装。
 
 安装完成后，浏览器右上角将出现如下 Logo。
 

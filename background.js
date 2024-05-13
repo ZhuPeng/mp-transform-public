@@ -1,10 +1,4 @@
-chrome.identity.getProfileUserInfo(function(userInfo) {
-    console.log(userInfo);
-    email = userInfo.email;
-
-    var isPaid = localStorage.getItem('isPaid') || false;
-    if (isPaid) {return}
-
+function checkIsPaid(email) {
     fetch('https://raw.githubusercontent.com/ZhuPeng/mp-transform-public/master/.user')
         .then(response => response.text())
         .then(data => {
@@ -19,6 +13,15 @@ chrome.identity.getProfileUserInfo(function(userInfo) {
         .catch(error => {
             console.log(error);
         });
+}
+
+chrome.identity.getProfileUserInfo(function(userInfo) {
+    console.log(userInfo);
+    email = userInfo.email;
+
+    var isPaid = localStorage.getItem('isPaid') || false;
+    if (isPaid) {return}
+    checkIsPaid(email)
 });
 
 function limitUsage() {
@@ -34,7 +37,8 @@ function limitUsage() {
     var isPaid = localStorage.getItem('isPaid') || false;
     if (isPaid) {return false}
 
-    alert("超过使用限制，请联系管理员开通付费服务\n用户：" + email + "\n管理员（微信）：15652961268\n")
+    checkIsPaid(email);
+    alert("超过使用限制，请联系管理员开通付费服务\n用户名：" + email + "\n管理员（微信）：15652961268\n")
     return true
 }
 
