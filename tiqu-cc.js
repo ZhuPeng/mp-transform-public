@@ -1,1 +1,1 @@
-copyAndRedirect('https://tiqu.cc/xiaohongshu/')
+copyAndRedirect('https://tiqu.cc/')

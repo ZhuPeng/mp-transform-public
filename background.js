@@ -47,7 +47,7 @@ var Handlers = [{
     urls: ['mp.weixin.qq.com'],
 }, {
     execScript: 'instagram.js',
-    urls: ['www.instagram.com/tv/'],
+    urls: ['instagram.com/tv/'],
 }, {
     execScript: 'video.js',
     urls: ['facebook.com', 'youtube.com', 'fb.watch', 'instagram.com'],
@@ -62,13 +62,13 @@ var Handlers = [{
     urls: ['getyarn.io/yarn-find?text='],
 }, {
     execScript: 'savethevideo-com.js',
-    urls: ['https://vimeo.com/'],
+    urls: ['vimeo.com/'],
 }, {
     execScript: 'snapany-com.js',
-    urls: ['www.bilibili.com/video/'],
+    urls: ['bilibili.com/video/'],
 }, {
     execScript: 'tiqu-cc.js',
-    urls: ['www.xiaohongshu.com/explore/'],
+    urls: ['xiaohongshu.com/explore/', 'xhslink.com', 'tiktok.com', 'douyin.com'],
 }, {
     execScript: 'cookie.js',
     urls: ['weibo.com'],
