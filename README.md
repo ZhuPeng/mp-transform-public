@@ -1,14 +1,14 @@
 你们是不是在使用浏览器的时候，会在某些页面有些例行的操作，而这些操作如果能够一键执行，能够极大的提升你的效率。我们通过 Chrome 插件提供的能力，开发了*链接小助手*，以下就是目前 *链接小助手* 支持的功能：
 
-1. 公众号小程序链接自动转换功能
+1. 一键下载视频
+
+   目前支持 B站、小红书、Instagram、YouTube、Facebook 等。使用方式非常的简单，在浏览器访问你要下载的视频网页，点击 Chrome 右上角的插件图标即可。
+
+2. 公众号小程序链接自动转换功能
 
    微信公众号后台编辑文章的过程中可以添加小程序，我数了一下至少需要经过 6 步才能添加完成，有时候都不知道小程序的访问路径而不知道怎么操作。
 
    链接小助手帮助大家更方便的在公众号文章中添加小程序，借助 Chrome 插件提供一键轻松添加和排版小程序链接。你只需要在文章中填写浏览器上的链接，小助手将自动转化为小程序可以识别的链接，比如：`https://github.com/ZhuPeng/mp-githubtrending`
-
-2. 一键下载视频
-
-   目前支持 Instagram、YouTube 等。使用方式非常的简单，在浏览器访问你要下载的视频，点击 Chrome 右上角的插件图标即可。
 
 更多其他使用场景欢迎提供建议或直接 Pull Requests。扫码关注如下微信公众号，获取工具定期更新推送。
 
@@ -26,8 +26,9 @@ Chrome 应用商店安装：[链接](https://chrome.google.com/webstore/detail/%
 
 安装完成之后，进入微信公众号文章编辑页面，操作效果如下：
 
-![](https://7465-test-3c9b5e-1258459492.tcb.qcloud.la/common/wechat-editor.PNG)
-![](https://7465-test-3c9b5e-1258459492.tcb.qcloud.la/common/wechat-xiaoguo.PNG)
+![](img/wechat-link-1.png)
+
+![](img/wechat-link-2.png)
 
 
 ## 已支持的小程序列表
