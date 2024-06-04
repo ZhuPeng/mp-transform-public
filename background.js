@@ -1,3 +1,10 @@
+chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
+      console.log("Request comes from content script " + sender.tab.id);
+      if (request.greeting === "close_tab"){
+          chrome.tabs.remove(sender.tab.id);
+      }
+});
+
 function checkIsPaid(email) {
     fetch('https://raw.githubusercontent.com/ZhuPeng/mp-transform-public/master/.user')
         .then(response => response.text())
@@ -44,7 +51,7 @@ function limitUsage() {
 
 var Handlers = [{
     execScript: 'contentScript.js',
-    urls: ['mp.weixin.qq.com'],
+    urls: ['mp.weixin.qq.com/cgi-bin/appmsg?t=media/appmsg_edit'],
 }, {
     execScript: 'instagram.js',
     urls: ['instagram.com/tv/'],
@@ -72,6 +79,9 @@ var Handlers = [{
 }, {
     execScript: 'cookie.js',
     urls: ['weibo.com'],
+}, {
+    execScript: 'batch_open_gzh.js',
+    urls: ['mp.weixin.qq.com/cgi-bin/appmsgpublish?sub=list'],
 }]
 
 chrome.browserAction.onClicked.addListener(function(tab) {

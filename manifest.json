@@ -10,7 +10,7 @@
        "64": "img/link-64.png",
        "128": "img/link-128.png"
    },  
-   "permissions": ["activeTab", "clipboardWrite", "identity", "identity.email"],
+   "permissions": ["activeTab", "clipboardWrite", "identity", "identity.email", "http://localhost/*"],
    "browser_action": {},
    "background": {
        "scripts": ["background.js"],
@@ -19,5 +19,8 @@
    "content_scripts": [{
        "matches": ["https://itra.run/RunnerSpace/RaceResults/*"],
        "js": ["itra.js"]
+  }, {
+  	"matches": ["https://mp.weixin.qq.com/s?__biz=MzAwMzE5NzM2Nw==*"],
+	"js": ["gongzhonghao.js"]
   }]
 }
