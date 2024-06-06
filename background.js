@@ -74,7 +74,7 @@ var Handlers = [{
     execScript: 'snapany-com.js',
     urls: ['bilibili.com/video/'],
 }, {
-    execScript: 'tiqu-cc.js',
+    execCode: "copyAndRedirect('https://tiqu.cc/')",
     urls: ['xiaohongshu.com/explore/', 'xhslink.com', 'tiktok.com', 'douyin.com'],
 }, {
     execScript: 'cookie.js',
@@ -94,7 +94,11 @@ chrome.browserAction.onClicked.addListener(function(tab) {
             var url = h.urls[j];
             if (tab.url.indexOf(url) > -1) {
                 chrome.tabs.executeScript(null, {file: "util.js"}, function() {
-                    chrome.tabs.executeScript(null, {file: h.execScript});
+                    if (h.executeScript !== undefined) {
+                        chrome.tabs.executeScript(null, {file: h.execScript});
+                    } else if (h.execCode !== undefined) {
+                        chrome.tabs.executeScript(null, {code: h.execCode}, function() {});
+                    }
                 });
                 return
             }
