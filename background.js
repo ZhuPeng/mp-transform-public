@@ -93,8 +93,9 @@ chrome.browserAction.onClicked.addListener(function(tab) {
         for (var j = 0; j < h.urls.length; j++) {
             var url = h.urls[j];
             if (tab.url.indexOf(url) > -1) {
+							  console.log('hit:', h);
                 chrome.tabs.executeScript(null, {file: "util.js"}, function() {
-                    if (h.executeScript !== undefined) {
+                    if (h.execScript !== undefined) {
                         chrome.tabs.executeScript(null, {file: h.execScript});
                     } else if (h.execCode !== undefined) {
                         chrome.tabs.executeScript(null, {code: h.execCode}, function() {});
