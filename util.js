@@ -9,6 +9,7 @@ copyToClipboard = str => {
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
+    alert('复制内容到剪贴板：\n' + str);
 };
 
 copyAndRedirect = str => {

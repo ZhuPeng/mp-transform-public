@@ -1,8 +1,11 @@
 window.addEventListener('load', function() {
 	  if (window.location.href.indexOf('autoclose') > -1) {
 			crawelInfo()
-		}
+		} 
 });
+
+var info = parseInfo()
+copyToClipboard(info['title'] + '\n\n\n开源项目地址：https://github.com/' + info['repo'] + '\n\n更多介绍：' + info['url'])
 
 function getTextWithSelector(selector) {
     const sel = document.querySelector(selector)
@@ -23,9 +26,9 @@ function getTextByPattern(p) {
 	  return m[0]
 }
 
-function crawelInfo() {
+function parseInfo() {
 	  console.log("获取json信息")
-	  var elem = {"website": "wechat", "type": "text"}
+    var elem = {"website": "wechat", "type": "text"}
 	  elem['title'] = getTextWithSelector('#activity-name')
 	 	var p = /项目地址：https:\/\/github.com\/(.*)/gi;
 	  elem['repo'] = (getTextByPattern(p).split('https://github.com/')[1] || '').split(' ')[0] || ''
@@ -35,7 +38,11 @@ function crawelInfo() {
 	  elem['url'] = window.location.href.replace("&autoclose", '')
 	  console.log(elem)
 	  // alert(JSON.stringify(elem))
+	  return elem
+}
 
+function crawelInfo() {
+    var elem = parseInfo()
 	  fetch('http://127.0.0.1:8082/api/add_doc', {
              method: 'POST',
 			       mode: 'no-cors',

@@ -82,6 +82,9 @@ var Handlers = [{
 }, {
     execScript: 'batch_open_gzh.js',
     urls: ['mp.weixin.qq.com/cgi-bin/appmsgpublish?sub=list'],
+}, {
+    execScript: 'gongzhonghao.js',
+    urls: ['https://mp.weixin.qq.com/s?__biz='],
 }]
 
 chrome.browserAction.onClicked.addListener(function(tab) {
