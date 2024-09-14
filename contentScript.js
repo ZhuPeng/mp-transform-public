@@ -8,7 +8,7 @@ var directTransform = [{
     nickname: 'GitHub精选',
     appid: 'wxe60c5750c87916e0',
     indexPage: 'pages/bloglist/bloglist',
-    urlPrefix: 'https://github.com',
+    urlPrefix: 'https://githubxxxx.com',
     genMPUrl: function(meta, url) {
         var [owner, repo, filepath] = parseGitHub(url)
         console.log("parseGitHub url:", owner, repo, filepath)
@@ -220,15 +220,15 @@ directTransform.push({
         return 'pages/copy/copy?url=' + url
     },
 })
-directTransform.push({
-    nickname: 'GitHub精选',
-    appid: 'wxe60c5750c87916e0',
-    indexPage: 'pages/bloglist/bloglist',
-    urlPrefix: 'http://',
-    genMPUrl: function(meta, url, text) {
-        return 'pages/copy/copy?url=' + url
-    },
-})
+// directTransform.push({
+//     nickname: 'GitHub精选',
+//     appid: 'wxe60c5750c87916e0',
+//     indexPage: 'pages/bloglist/bloglist',
+//     urlPrefix: 'http://',
+//     genMPUrl: function(meta, url, text) {
+//         return 'pages/copy/copy?url=' + url
+//     },
+// })
 
 function DefaultGenMPUrl(meta, url) {
     if (url == meta.urlPrefix) {return meta.indexPage}
