@@ -5,7 +5,7 @@ window.addEventListener('load', function() {
 });
 
 var info = parseInfo()
-copyToClipboard(info['title'] + '\n\n\n开源项目地址：https://github.com/' + info['repo'] + '\n\n更多介绍：' + info['url'])
+copyToClipboard(info['title'] + '\n\n' + info['intro'] + '\n\n开源项目地址：https://github.com/' + info['repo'] + '\n\n更多介绍：' + info['url'])
 
 function getTextWithSelector(selector) {
     const sel = document.querySelector(selector)
@@ -36,6 +36,7 @@ function parseInfo() {
 			elem['repo'] = getTextByPattern(/链接：https:\/\/github.com\/(.*)/gi).split('https://github.com/')[1].split(' ')[0]
 		}
 	  elem['url'] = window.location.href.replace("&autoclose", '')
+		elem['intro'] = getElementByXpath(document, '//h4[2]/following-sibling::p[1]').innerText
 	  console.log(elem)
 	  // alert(JSON.stringify(elem))
 	  return elem
