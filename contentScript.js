@@ -5,31 +5,6 @@ var MPTag = 'data-miniprogram-appid='
 var Count = []
 
 var directTransform = [{
-    nickname: 'GitHub精选',
-    appid: 'wxe60c5750c87916e0',
-    indexPage: 'pages/bloglist/bloglist',
-    urlPrefix: 'https://githubxxxx.com',
-    genMPUrl: function(meta, url) {
-        var [owner, repo, filepath] = parseGitHub(url)
-        console.log("parseGitHub url:", owner, repo, filepath)
-        if (owner == "") { return 'pages/github/index'}
-        else if (repo == "") { return 'pages/account/account?owner=' + owner }
-        else if (filepath == "") { return 'pages/readme/readme?repo=' + owner + '/' + repo }
-        else if (filepath.startsWith('issues/') || filepath.startsWith('pull/')) {
-            var issue = 'https://api.github.com/repos/' + owner + '/' + repo + '/' + filepath.replace('pull/', 'issues/')
-            return '/pages/issue/issue?issue='+issue
-        }
-        else { return 'pages/gitfile/gitfile?file=' + filepath + '&owner=' + owner + '&repo=' + repo }
-    },
-}, {
-    nickname: 'GitHub精选',
-    appid: 'wxe60c5750c87916e0',
-    indexPage: 'pages/bloglist/bloglist',
-    urlPrefix: 'https://mp.weixin.qq.com/pages/gitdir/gitdir',
-    genMPUrl: function(meta, url) {
-        return url.slice('https://mp.weixin.qq.com/'.length, url.length)
-    }
-}, {
     nickname: 'iDayDayUP',
     appid: 'wx482958efb057c5a7',
     indexPage: 'pages/daily/daily',
@@ -211,24 +186,6 @@ var directTransform = [{
     // https://new.qq.com/omn/TWF20190/TWF2019081200847600.html
     genMPUrl: GenFormatLastPathMPUrl('pages/normal/index?atype=0&id='),
 }]
-directTransform.push({
-    nickname: 'GitHub精选',
-    appid: 'wxe60c5750c87916e0',
-    indexPage: 'pages/bloglist/bloglist',
-    urlPrefix: 'https://',
-    genMPUrl: function(meta, url, text) {
-        return 'pages/copy/copy?url=' + url
-    },
-})
-// directTransform.push({
-//     nickname: 'GitHub精选',
-//     appid: 'wxe60c5750c87916e0',
-//     indexPage: 'pages/bloglist/bloglist',
-//     urlPrefix: 'http://',
-//     genMPUrl: function(meta, url, text) {
-//         return 'pages/copy/copy?url=' + url
-//     },
-// })
 
 function DefaultGenMPUrl(meta, url) {
     if (url == meta.urlPrefix) {return meta.indexPage}
