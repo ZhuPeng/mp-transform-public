@@ -26,6 +26,11 @@ function getTextByPattern(p) {
 	  return m[0]
 }
 
+function getElementByXpath(dom, path) {
+	console.log('getElementByXpath', dom, path)
+  return document.evaluate(path, dom, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}
+
 function parseInfo() {
 	  console.log("获取json信息")
     var elem = {"website": "wechat", "type": "text"}
