@@ -9,11 +9,11 @@ const pTags = document.querySelectorAll('p');
 const button = Array.from(pTags).find(p => p.textContent.trim() === 'Time Charts');
 
 if (button) {
-  button.addEventListener('click', function() {
-    console.log('Time Charts clicked');
-    showInter("//div[@role='row']//div[5]");
-    showInter("//div[@role='row']//div[6]");
-  });
+    button.addEventListener('click', function() {
+        console.log('Time Charts clicked');
+        showInter("//div[@role='row']//div[5]");
+        showInter("//div[@role='row']//div[6]");
+    });
 }
 
 function showInter(xpath){
@@ -46,6 +46,7 @@ function showInter(xpath){
 }
 
 function showHiddenInfo() {
+    console.log('showHiddenInfo');
     var xpath = "//table/tbody/tr"; // 选择所有 <p> 元素下的 <div> 元素
     var result = document.evaluate(xpath, document, null, XPathResult.ANY_TYPE, null);
     var node = result.iterateNext();

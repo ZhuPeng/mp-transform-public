@@ -13,11 +13,11 @@
    "permissions": ["activeTab", "clipboardWrite", "identity", "identity.email", "http://localhost/*"],
    "browser_action": {},
    "background": {
-       "scripts": ["background.js"],
+       "scripts": ["util.js", "background.js"],
        "persistent": false
    },
    "content_scripts": [{
-       "matches": ["https://itra.run/RunnerSpace/RaceResults/*", "https://*.utmb.world/races/*"],
+       "matches": ["https://itra.run/RunnerSpace/RaceResults/*", "https://itra.run/api/RunnerSpace/*", "https://*.utmb.world/races/*"],
        "js": ["itra.js"]
   }, {
   	"matches": ["https://mp.weixin.qq.com/s?__biz=MzAwMzE5NzM2Nw==*"],

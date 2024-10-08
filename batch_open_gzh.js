@@ -10,6 +10,6 @@ if (elems.length == 0) {
       console.log('src:', src)
       window.open(src + '&autoclose')
 		  setTimeout(function(){ 
-				console.log('sleep 100ms'); }, 500);
+			console.log('sleep 100ms'); }, 500);
   }
 }

@@ -7,44 +7,20 @@ window.addEventListener('load', function() {
 var info = parseInfo()
 copyToClipboard(info['title'] + '\n\n' + info['intro'] + '\n\n开源项目地址：https://github.com/' + info['repo'] + '\n\n更多介绍：' + info['url'])
 
-function getTextWithSelector(selector) {
-    const sel = document.querySelector(selector)
-   	var t = ''
-    if (sel) {
-			  t = sel.innerText
-    }
-	  console.log(selector, ' => ', t)
-	  return t
-}
-
-function getTextByPattern(p) {
-	  console.log('match p:', p)
-  	var m = document.body.innerText.match(p)
-	  if (!m || m == null || m.length == 0) {
-			return ''
-		}
-	  return m[0]
-}
-
-function getElementByXpath(dom, path) {
-	console.log('getElementByXpath', dom, path)
-  return document.evaluate(path, dom, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-}
-
 function parseInfo() {
-	  console.log("获取json信息")
+	console.log("获取json信息")
     var elem = {"website": "wechat", "type": "text"}
-	  elem['title'] = getTextWithSelector('#activity-name')
-	 	var p = /项目地址：https:\/\/github.com\/(.*)/gi;
-	  elem['repo'] = (getTextByPattern(p).split('https://github.com/')[1] || '').split(' ')[0] || ''
-	  if (elem['repo'].length === 0) {
-			elem['repo'] = getTextByPattern(/链接：https:\/\/github.com\/(.*)/gi).split('https://github.com/')[1].split(' ')[0]
-		}
-	  elem['url'] = window.location.href.replace("&autoclose", '')
-		elem['intro'] = getElementByXpath(document, '//h4[2]/following-sibling::p[1]').innerText
-	  console.log(elem)
-	  // alert(JSON.stringify(elem))
-	  return elem
+	elem['title'] = getTextWithSelector('#activity-name')
+	var p = /项目地址：https:\/\/github.com\/(.*)/gi;
+	elem['repo'] = (getTextByPattern(p).split('https://github.com/')[1] || '').split(' ')[0] || ''
+	if (elem['repo'].length === 0) {
+		elem['repo'] = getTextByPattern(/链接：https:\/\/github.com\/(.*)/gi).split('https://github.com/')[1].split(' ')[0]
+	}
+	elem['url'] = window.location.href.replace("&autoclose", '')
+	elem['intro'] = getElementByXpath(document, '//h4[2]/following-sibling::p[1]').innerText
+	console.log(elem)
+	// alert(JSON.stringify(elem))
+	return elem
 }
 
 function crawelInfo() {

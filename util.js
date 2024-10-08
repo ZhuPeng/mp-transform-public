@@ -18,6 +18,25 @@ copyAndRedirect = str => {
     alert('已复制视频地址到剪贴板，跳转到 ' + target + ' 开始下载')
     window.open(target)
 };
+// getTextWithSelector('#activity-name')
+function getTextWithSelector(selector) {
+  const sel = document.querySelector(selector)
+   var t = ''
+  if (sel) {
+      t = sel.innerText
+  }
+  console.log(selector, ' => ', t)
+  return t
+}
+// var p = /项目地址：https:\/\/github.com\/(.*)/gi; getTextByPattern(p)
+function getTextByPattern(p) {
+	console.log('match p:', p)
+  	var m = document.body.innerText.match(p)
+	if (!m || m == null || m.length == 0) {
+		return ''
+	}
+	return m[0]
+}
 
 function getElementByXpath(dom, path) {
 	console.log('getElementByXpath', dom, path)
