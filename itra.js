@@ -1,6 +1,49 @@
 window.addEventListener('load', function() {
-    showHiddenInfo()
+    if (window.location.href.indexOf('itra') > -1) {
+        showHiddenInfo()
+    }
 });
+
+const pTags = document.querySelectorAll('p');
+
+const button = Array.from(pTags).find(p => p.textContent.trim() === 'Time Charts');
+
+if (button) {
+  button.addEventListener('click', function() {
+    console.log('Time Charts clicked');
+    showInter("//div[@role='row']//div[5]");
+    showInter("//div[@role='row']//div[6]");
+  });
+}
+
+function showInter(xpath){
+    console.log('showInterGain');
+    var result = document.evaluate(xpath, document, null, XPathResult.ANY_TYPE, null);
+    var node = result.iterateNext()
+    var lastGain = 0;
+    var nodesToModify = [];
+    while (node) {
+        console.log('node:', node);
+        var culGain = node.childNodes[0].innerText;
+        console.log('culGain:', culGain);
+        if (!Number.isInteger(Number(culGain))) {
+            node = result.iterateNext();
+            continue;
+        }
+        var interGain = Number(culGain) - lastGain;
+        console.log('interGain:', interGain);
+        lastGain = culGain;
+        nodesToModify.push({node: node, interGain: interGain, culGain: culGain});
+        node = result.iterateNext();
+    }
+    nodesToModify.forEach(function(item, index, array) {
+        if (index === array.length - 1) {
+            item.node.childNodes[0].innerText = item.interGain + ' (total:' + item.culGain+')';
+        } else {
+            item.node.childNodes[0].innerText = item.interGain;
+        }
+    });
+}
 
 function showHiddenInfo() {
     var xpath = "//table/tbody/tr"; // 选择所有 <p> 元素下的 <div> 元素
