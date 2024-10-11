@@ -10,11 +10,12 @@
        "64": "img/link-64.png",
        "128": "img/link-128.png"
    },  
-   "permissions": ["activeTab", "clipboardWrite", "identity", "identity.email", "http://localhost/*"],
+   "permissions": ["activeTab", "clipboardWrite", "identity", "identity.email", "webRequest", "webRequestBlocking", "<all_urls>", "tabs"],
+   "host_permissions": ["http://localhost/*", "https://itra.run/api/Race/*"],
    "browser_action": {},
    "background": {
        "scripts": ["util.js", "background.js"],
-       "persistent": false
+       "persistent": true
    },
    "content_scripts": [{
        "matches": ["https://itra.run/RunnerSpace/RaceResults/*", "https://itra.run/api/RunnerSpace/*", "https://*.utmb.world/races/*"],

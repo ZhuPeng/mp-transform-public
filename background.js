@@ -5,6 +5,18 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
       }
 });
 
+chrome.webRequest.onCompleted.addListener(
+    function(details) {
+        if (details.url.indexOf('__not_listen__') > -1) {
+            return;
+        }
+        chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, { action: 'modifyData', details: details });
+        });
+    },
+    { urls: ["https://itra.run/api/Race/GetRaceResultsData?runnerId=*"] }
+);
+
 function checkIsPaid(email) {
     fetch('https://raw.githubusercontent.com/ZhuPeng/mp-transform-public/master/.user')
         .then(response => response.text())

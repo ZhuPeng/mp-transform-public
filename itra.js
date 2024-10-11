@@ -4,6 +4,48 @@ window.addEventListener('load', function() {
     }
 });
 
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    if (request.action === 'modifyData') {
+      console.log('Received requests details', request.details);
+      var url = request.details.url;
+      if (url.indexOf('?') > -1) {
+          url = url + '&__not_listen__'
+      } else {
+          url = url + '?__not_listen__'
+      }
+      fetch(url)
+         .then(response => response.json())
+         .then(data => {
+             console.log('fetch data:', data);
+             showScore(data['raceResults']);
+         });
+    }
+});
+
+function loopSelectXpath(xpath, modifyFunc) {
+    var result = document.evaluate(xpath, document, null, XPathResult.ANY_TYPE, null);
+    var node = result.iterateNext()
+    var nodesToModify = [];
+    while (node) {
+        console.log('node:', node);
+        nodesToModify.push({node: node});
+        node = result.iterateNext();
+    }
+    nodesToModify.forEach(function(item, index, array) {
+        modifyFunc(index, item.node);
+    });
+}
+
+function showScore(raceResults) {
+    console.log('showScore:', raceResults);
+    loopSelectXpath("//div[@class='table-info text-700 race-score']/div[1]", function(index, node) {
+        node.classList.remove('locked');
+        if (node.innerText.trim() == "DNF") {
+            node.innerText = raceResults[index]['score'];
+        }
+    });
+}
+
 const pTags = document.querySelectorAll('p');
 
 const button = Array.from(pTags).find(p => p.textContent.trim() === 'Time Charts');
