@@ -38,7 +38,7 @@ function loopSelectXpath(xpath, modifyFunc) {
 
 function showScore(raceResults) {
     console.log('showScore:', raceResults);
-    loopSelectXpath("//div[@class='table-info text-700 race-score']/div[1]", function(index, node) {
+    loopSelectXpath("//div[@class='table-info text-700 race-score']/div[@class='d-flex locked']", function(index, node) {
         node.classList.remove('locked');
         if (node.innerText.trim() == "DNF") {
             node.innerText = raceResults[index]['score'];
