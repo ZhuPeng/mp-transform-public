@@ -32,7 +32,7 @@ function getWithCache(key, url) {
       return c;
   }
 
-  fetch('https://raw.githubusercontent.com/ZhuPeng/mp-transform-public/master/.config.json')
+  fetch(url)
    .then(response => response.json())
    .then(data => {
       console.log('fetch data:', data)
@@ -46,6 +46,10 @@ function getWithCache(key, url) {
 
 function urlContains(str) {
   return window.location.href.indexOf(str) >= 0
+}
+
+function bodyContains(str) {
+  return document.body.innerText.indexOf(str) >= 0
 }
 
 function loopSelectXpath(xpath, modifyFunc) {
@@ -80,6 +84,21 @@ function getTextByPattern(p) {
 		return ''
 	}
 	return m[0]
+}
+
+function findTagWithText(tag, text) {
+	var tags = document.querySelectorAll(tag);
+	return Array.from(tags).find(t => t.textContent.trim() === text);
+}
+
+function bindClickWithTag(tag, handler) {
+	if (tag) {
+		console.log('found tag bindclick:', tag)
+		tag.addEventListener('click', function() {
+			console.log('click:', tag)
+			handler();
+    });
+	}
 }
 
 function getElementByXpath(dom, path) {
