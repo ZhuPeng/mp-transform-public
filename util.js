@@ -18,6 +18,21 @@ copyAndRedirect = str => {
     alert('已复制视频地址到剪贴板，跳转到 ' + target + ' 开始下载')
     window.open(target)
 };
+
+function loopSelectXpath(xpath, modifyFunc) {
+  var result = document.evaluate(xpath, document, null, XPathResult.ANY_TYPE, null);
+  var node = result.iterateNext()
+  var nodesToModify = [];
+  while (node) {
+      console.log('node:', node, 'children:', node.children);
+      nodesToModify.push({node: node});
+      node = result.iterateNext();
+  }
+  nodesToModify.forEach(function(item, index, array) {
+      modifyFunc(index, item.node);
+  });
+}
+
 // getTextWithSelector('#activity-name')
 function getTextWithSelector(selector) {
   const sel = document.querySelector(selector)

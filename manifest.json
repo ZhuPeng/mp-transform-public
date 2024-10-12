@@ -19,7 +19,7 @@
    },
    "content_scripts": [{
        "matches": ["https://itra.run/RunnerSpace/RaceResults/*", "https://itra.run/api/RunnerSpace/*", "https://*.utmb.world/races/*"],
-       "js": ["itra.js"]
+       "js": ["util.js", "itra.js"]
   }, {
   	"matches": ["https://mp.weixin.qq.com/s?__biz=MzAwMzE5NzM2Nw==*"],
 	"js": ["gongzhonghao.js"]
