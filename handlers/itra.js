@@ -60,8 +60,10 @@ if (button) {
 
 if (urlContains('https://live.utmb.world/') && urlContains('runners')) {
     var lastDist = 0;
+    var lastGain = 0;
     loopSelectXpath("//div[contains(@class, 'runner-timing-point_liveTableRow')]", function(index, node){
         var dist = Number(node.children[6].innerText.trim().split(' ')[0]);
+        var gain = Number(node.children[7].innerText.trim().split(' ')[0]);
         var time = node.children[4].innerText.trim();
         console.log('dist:', dist, 'time:', time);
 
@@ -69,8 +71,10 @@ if (urlContains('https://live.utmb.world/') && urlContains('runners')) {
         if (dist - lastDist > 0.1) {
             console.log('inter dist:', dist - lastDist);
             ch.innerText = ch.innerText + '   +' + (dist - lastDist).toFixed(1);
+            node.children[7].children[0].innerText = node.children[7].children[0].innerText + '   +' + (gain - lastGain).toFixed(0);
         }
         lastDist = dist;
+        lastGain = gain;
     });
 }
 
