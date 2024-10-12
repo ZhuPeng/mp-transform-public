@@ -10,7 +10,7 @@
        "64": "img/link-64.png",
        "128": "img/link-128.png"
    },  
-   "permissions": ["activeTab", "clipboardWrite", "identity", "identity.email", "webRequest", "webRequestBlocking", "<all_urls>", "tabs"],
+   "permissions": ["activeTab", "clipboardWrite", "identity", "identity.email", "webRequest", "webRequestBlocking", "<all_urls>"],
    "host_permissions": ["http://localhost/*", "https://itra.run/api/Race/*"],
    "browser_action": {},
    "background": {
