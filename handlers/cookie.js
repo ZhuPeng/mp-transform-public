@@ -1,1 +1,0 @@
-copyToClipboard(document.cookie)

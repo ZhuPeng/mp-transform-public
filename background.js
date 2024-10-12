@@ -68,7 +68,7 @@ var Handlers = [{
     execScript: 'handlers/instagram.js',
     urls: ['instagram.com/tv/'],
 }, {
-    execScript: 'handlers/video.js',
+    execCode: 'copyAndRedirect("https://savefrom.net/" + window.location.href)',
     urls: ['facebook.com', 'youtube.com', 'fb.watch', 'instagram.com'],
 }, {
     execScript: 'handlers/savefrom.js',
@@ -80,16 +80,16 @@ var Handlers = [{
     execScript: 'handlers/batch_getyarn.js',
     urls: ['getyarn.io/yarn-find?text='],
 }, {
-    execScript: 'handlers/savethevideo-com.js',
+    execCode: 'copyAndRedirect("https://www.savethevideo.com/vimeo-downloader?url=" + window.location.href)',
     urls: ['vimeo.com/'],
 }, {
-    execScript: 'handlers/snapany-com.js',
+    execCode: 'copyAndRedirect("https://snapany.com/zh/bilibili")',
     urls: ['bilibili.com/video/'],
 }, {
     execCode: "copyAndRedirect('https://tiqu.cc/')",
     urls: ['xiaohongshu.com/explore/', 'xhslink.com', 'tiktok.com', 'douyin.com'],
 }, {
-    execScript: 'handlers/cookie.js',
+    execCode: 'copyToClipboard(document.cookie)',
     urls: ['weibo.com'],
 }, {
     execScript: 'handlers/batch_open_gzh.js',
