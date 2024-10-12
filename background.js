@@ -18,25 +18,7 @@ chrome.webRequest.onCompleted.addListener(
 );
 
 function getRemoteConfig() {
-    var dt = new Date();
-    var key = dt.getFullYear() + '-' + (dt.getMonth() + 1) + dt.getDate() + '-config'
-    var cached = localStorage.getItem(key) || false;
-    if (cached !== false) {
-        var c = JSON.parse(cached)
-        console.log('cached config:', c);
-        return c;
-    }
-
-    fetch('https://raw.githubusercontent.com/ZhuPeng/mp-transform-public/master/.config.json')
-     .then(response => response.json())
-     .then(data => {
-        console.log('fetch data:', data)
-        localStorage.setItem(key, JSON.stringify(data));
-     })
-     .catch(error => {
-         console.log('fetch json:', error);
-     });
-    return {};
+    return getWithCache(newDayKey('config'), 'https://raw.githubusercontent.com/ZhuPeng/mp-transform-public/master/.config.json');
 }
 
 function checkIsPaid(email) {
@@ -110,6 +92,10 @@ chrome.browserAction.onClicked.addListener(function(tab) {
     console.log('browserAction Clicked: ' + tab.url);
     if (limitUsage() === true) {return}
 
+    var remoteConfig = getRemoteConfig();
+    if (remoteConfig['handlers'].length > 0) {
+        Handlers.push(...remoteConfig['handlers']);
+    }
     for (var i = 0; i < Handlers.length; i++) {
         var h = Handlers[i];
         for (var j = 0; j < h.urls.length; j++) {

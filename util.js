@@ -19,6 +19,31 @@ copyAndRedirect = str => {
     window.open(target)
 };
 
+function newDayKey(sufix) {
+  var dt = new Date();
+  return dt.getFullYear() + '-' + (dt.getMonth() + 1) + dt.getDate() + '-' + sufix;
+}
+
+function getWithCache(key, url) {
+  var cached = localStorage.getItem(key) || false;
+  if (cached !== false) {
+      var c = JSON.parse(cached)
+      console.log('cached config:', c);
+      return c;
+  }
+
+  fetch('https://raw.githubusercontent.com/ZhuPeng/mp-transform-public/master/.config.json')
+   .then(response => response.json())
+   .then(data => {
+      console.log('fetch data:', data)
+      localStorage.setItem(key, JSON.stringify(data));
+   })
+   .catch(error => {
+       console.log('fetch json:', error);
+   });
+  return {};
+}
+
 function urlContains(str) {
   return window.location.href.indexOf(str) >= 0
 }
