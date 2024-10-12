@@ -62,40 +62,40 @@ function limitUsage() {
 }
 
 var Handlers = [{
-    execScript: 'contentScript.js',
+    execScript: 'handlers/contentScript.js',
     urls: ['mp.weixin.qq.com/cgi-bin/appmsg?t=media/appmsg_edit'],
 }, {
-    execScript: 'instagram.js',
+    execScript: 'handlers/instagram.js',
     urls: ['instagram.com/tv/'],
 }, {
-    execScript: 'video.js',
+    execScript: 'handlers/video.js',
     urls: ['facebook.com', 'youtube.com', 'fb.watch', 'instagram.com'],
 }, {
-    execScript: 'savefrom.js',
+    execScript: 'handlers/savefrom.js',
     urls: ['en.savefrom.net'],
 }, {
-    execScript: 'getyarn.js',
+    execScript: 'handlers/getyarn.js',
     urls: ['getyarn.io/yarn-clip'],
 }, {
-    execScript: 'batch_getyarn.js',
+    execScript: 'handlers/batch_getyarn.js',
     urls: ['getyarn.io/yarn-find?text='],
 }, {
-    execScript: 'savethevideo-com.js',
+    execScript: 'handlers/savethevideo-com.js',
     urls: ['vimeo.com/'],
 }, {
-    execScript: 'snapany-com.js',
+    execScript: 'handlers/snapany-com.js',
     urls: ['bilibili.com/video/'],
 }, {
     execCode: "copyAndRedirect('https://tiqu.cc/')",
     urls: ['xiaohongshu.com/explore/', 'xhslink.com', 'tiktok.com', 'douyin.com'],
 }, {
-    execScript: 'cookie.js',
+    execScript: 'handlers/cookie.js',
     urls: ['weibo.com'],
 }, {
-    execScript: 'batch_open_gzh.js',
+    execScript: 'handlers/batch_open_gzh.js',
     urls: ['mp.weixin.qq.com/cgi-bin/appmsgpublish?sub=list'],
 }, {
-    execScript: 'gongzhonghao.js',
+    execScript: 'handlers/gongzhonghao.js',
     urls: ['https://mp.weixin.qq.com/s?__biz='],
 }]
 
