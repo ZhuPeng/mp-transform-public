@@ -1,0 +1,15 @@
+{
+    "handlers": [{
+        "execCode": "copyAndRedirect('https://tiqu.cc/')",
+        "urls": ["xiaohongshu.com/explore/", "xhslink.com", "tiktok.com", "douyin.com"]
+    }, { 
+        "execCode": "copyAndRedirect('https://www.savethevideo.com/vimeo-downloader?url=' + window.location.href)",
+        "urls": ["vimeo.com/"]
+    }, {
+        "execCode": "copyAndRedirect('https://snapany.com/zh/bilibili')",
+        "urls": ["bilibili.com/video/"]
+    }, {
+        "execCode": "copyAndRedirect('https://savefrom.net/' + window.location.href)",
+        "urls": ["facebook.com", "youtube.com", "fb.watch", "instagram.com"]
+    }]
+}

@@ -31,7 +31,6 @@ function requestRaceResults(url) {
 
 function showScore(raceResults) {
     console.log('showScore:', raceResults);
-    // loopSelectXpath("//div[contains(@class, 'table-info text-700 race-score')]/div[@class='d-flex locked']", function(index, node) {
     loopSelectXpath("//div[@class='row table-body-row']", function(index, node) {
 		var ch = node.children[8].children[1].children[0];
 		if (!ch.classList.contains('locked')) {

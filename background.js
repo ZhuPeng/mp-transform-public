@@ -17,6 +17,28 @@ chrome.webRequest.onCompleted.addListener(
     { urls: ["https://itra.run/api/Race/GetRaceResultsData?runnerId=*"] }
 );
 
+function getRemoteConfig() {
+    var dt = new Date();
+    var key = dt.getFullYear() + '-' + (dt.getMonth() + 1) + dt.getDate() + '-config'
+    var cached = localStorage.getItem(key) || false;
+    if (cached !== false) {
+        var c = JSON.parse(cached)
+        console.log('cached config:', c);
+        return c;
+    }
+
+    fetch('https://raw.githubusercontent.com/ZhuPeng/mp-transform-public/master/.config.json')
+     .then(response => response.json())
+     .then(data => {
+        console.log('fetch data:', data)
+        localStorage.setItem(key, JSON.stringify(data));
+     })
+     .catch(error => {
+         console.log('fetch json:', error);
+     });
+    return {};
+}
+
 function checkIsPaid(email) {
     fetch('https://raw.githubusercontent.com/ZhuPeng/mp-transform-public/master/.user')
         .then(response => response.text())
@@ -68,9 +90,6 @@ var Handlers = [{
     execScript: 'handlers/instagram.js',
     urls: ['instagram.com/tv/'],
 }, {
-    execCode: 'copyAndRedirect("https://savefrom.net/" + window.location.href)',
-    urls: ['facebook.com', 'youtube.com', 'fb.watch', 'instagram.com'],
-}, {
     execScript: 'handlers/savefrom.js',
     urls: ['en.savefrom.net'],
 }, {
@@ -79,18 +98,6 @@ var Handlers = [{
 }, {
     execScript: 'handlers/batch_getyarn.js',
     urls: ['getyarn.io/yarn-find?text='],
-}, {
-    execCode: 'copyAndRedirect("https://www.savethevideo.com/vimeo-downloader?url=" + window.location.href)',
-    urls: ['vimeo.com/'],
-}, {
-    execCode: 'copyAndRedirect("https://snapany.com/zh/bilibili")',
-    urls: ['bilibili.com/video/'],
-}, {
-    execCode: "copyAndRedirect('https://tiqu.cc/')",
-    urls: ['xiaohongshu.com/explore/', 'xhslink.com', 'tiktok.com', 'douyin.com'],
-}, {
-    execCode: 'copyToClipboard(document.cookie)',
-    urls: ['weibo.com'],
 }, {
     execScript: 'handlers/batch_open_gzh.js',
     urls: ['mp.weixin.qq.com/cgi-bin/appmsgpublish?sub=list'],
@@ -108,7 +115,7 @@ chrome.browserAction.onClicked.addListener(function(tab) {
         for (var j = 0; j < h.urls.length; j++) {
             var url = h.urls[j];
             if (tab.url.indexOf(url) > -1) {
-							  console.log('hit:', h);
+				console.log('hit:', h);
                 chrome.tabs.executeScript(null, {file: "util.js"}, function() {
                     if (h.execScript !== undefined) {
                         chrome.tabs.executeScript(null, {file: h.execScript});
