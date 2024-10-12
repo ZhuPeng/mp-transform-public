@@ -19,6 +19,10 @@ copyAndRedirect = str => {
     window.open(target)
 };
 
+function urlContains(str) {
+  return window.location.href.indexOf(str) >= 0
+}
+
 function loopSelectXpath(xpath, modifyFunc) {
   var result = document.evaluate(xpath, document, null, XPathResult.ANY_TYPE, null);
   var node = result.iterateNext()
