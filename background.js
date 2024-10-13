@@ -54,7 +54,7 @@ function limitUsage() {
 }
 
 var Handlers = [{
-    execScript: 'handlers/contentScript.js',
+    execScript: 'contentScript.js',
     urls: ['mp.weixin.qq.com/cgi-bin/appmsg?t=media/appmsg_edit'],
 }, {
     execScript: 'handlers/instagram.js',
