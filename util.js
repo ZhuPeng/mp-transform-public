@@ -120,3 +120,26 @@ function input(dom, path, info) {
 	element.setAttribute("value", info);
 	element.value = info
 }
+
+function submit_cmd(cmd) {
+  var url = 'http://127.0.0.1:8083/submit'
+  var data = {
+      'PROXYSERVER-IP': '116.198.206.22:8083',
+      'command': cmd,
+      'same_terminate': true
+  }
+  fetch(url, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: {
+      'Accept': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': false,
+      'mode': 'no-cors',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  }).then(response => response)
+  .catch(error => console.log('Error:', error));
+  alert('提交命令\n'+cmd);
+}

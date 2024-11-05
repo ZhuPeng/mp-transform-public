@@ -27,7 +27,7 @@ function crawelInfo() {
     var elem = parseInfo()
 	  fetch('http://127.0.0.1:8082/api/add_doc', {
              method: 'POST',
-			       mode: 'no-cors',
+			 mode: 'no-cors',
              headers: {
                  'Accept': 'application/json',
 							   'Access-Control-Allow-Origin': '*',

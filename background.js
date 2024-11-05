@@ -71,6 +71,9 @@ var Handlers = [{
 }, {
     execScript: 'handlers/batch_open_gzh.js',
     urls: ['mp.weixin.qq.com/cgi-bin/appmsgpublish?sub=list'],
+},{
+    execCode: 'submit_cmd("cd ../liverace && python3 data.py subscribe_from_url " + window.location.href)',
+    urls: ['https://live.utmb.world/'],
 }, {
     execScript: 'handlers/gongzhonghao.js',
     urls: ['https://mp.weixin.qq.com/s?__biz='],
