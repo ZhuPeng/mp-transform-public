@@ -72,7 +72,7 @@ var Handlers = [{
     execScript: 'handlers/batch_open_gzh.js',
     urls: ['mp.weixin.qq.com/cgi-bin/appmsgpublish?sub=list'],
 },{
-    execCode: 'submit_cmd("cd ../liverace && python3 data.py subscribe_from_url " + window.location.href)',
+    execCode: 'submit_cmd("cd ../liverace && python3 data.py subscribe_from_url \\"" + window.location.href + "\\"")',
     urls: ['https://live.utmb.world/', 'https://www.geexek.com/score/pscore?', 'https://sport.luojiweiye.com/web/h5/new_grade_cret.html', '/coureur.php?rech='],
 }, {
     execScript: 'handlers/gongzhonghao.js',
