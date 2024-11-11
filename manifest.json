@@ -17,10 +17,13 @@
        "persistent": true
    },
    "content_scripts": [{
-       "matches": ["https://live.utmb.world/*/runners/*", "https://itra.run/RunnerSpace/RaceResults/*", "https://itra.run/api/RunnerSpace/*", "https://*.utmb.world/races/*"],
-       "js": ["util.js", "handlers/itra.js"]
-  }, {
+     "matches": ["https://live.utmb.world/*/runners/*", "https://itra.run/RunnerSpace/RaceResults/*", "https://itra.run/api/RunnerSpace/*", "https://*.utmb.world/races/*"],
+     "js": ["util.js", "handlers/itra.js"]
+   }, {
+     "matches": ["https://live.utmb.world/*/runners/*"],
+     "js": ["util.js", "handlers/race_subscribe.js"]
+   }, {
   	"matches": ["https://mp.weixin.qq.com/s?__biz=MzAwMzE5NzM2Nw==*"],
 	"js": ["handlers/gongzhonghao.js"]
-  }]
+   }]
 }

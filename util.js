@@ -121,6 +121,10 @@ function input(dom, path, info) {
 	element.value = info
 }
 
+function subscribe_notify(email) {
+  submit_cmd("cd ../liverace && python3 data.py subscribe_from_url " + window.location.href + " " + email);
+}
+
 function submit_cmd(cmd) {
   var url = 'http://127.0.0.1:8083/submit'
   var data = {
@@ -141,5 +145,5 @@ function submit_cmd(cmd) {
     body: JSON.stringify(data)
   }).then(response => response)
   .catch(error => console.log('Error:', error));
-  alert('提交命令\n'+cmd);
+  alert('提交成功！');
 }
