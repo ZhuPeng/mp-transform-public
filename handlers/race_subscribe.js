@@ -1,4 +1,20 @@
-bindClickWithTag(getElementByXpath(document, '//div[@role="button"]'), function() {
+if (urlContains('geexek.com/score/pscore')) {
+  const predictSwitch = document.querySelector('#predictSwitch');
+  var newNode = predictSwitch.cloneNode(false);
+  newNode.innerText = '订阅通知';
+  predictSwitch.parentNode.insertBefore(newNode, predictSwitch);
+  bindClickWithTag(newNode, subscribe_diaglog);
+}
+
+if (urlContains('live.utmb.world/')) {
+    bindClickWithTag(getElementByXpath(document, '//div[@role="button"]'), subscribe_diaglog)
+}
+
+if (urlContains('/coureur.php')) {
+    bindClickWithTag(getElementByXpath(document, '//a[@class="nofav"]'), subscribe_diaglog)
+}
+
+function subscribe_diaglog() {
 	console.log('subscribe click with notify');
     const dialog = document.createElement('dialog');
     dialog.innerHTML = `
@@ -26,4 +42,4 @@ bindClickWithTag(getElementByXpath(document, '//div[@role="button"]'), function(
     dialog.querySelector('#cancel').addEventListener('click', () => {
       dialog.close();
     });
-})
+}
