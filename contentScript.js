@@ -5,6 +5,10 @@ var MPTag = 'data-miniprogram-appid='
 var Count = []
 
 var directTransform = [{
+    type: 'WechatLink',
+    nickname: 'WechatLink',
+    urlPrefix: 'https://mp.weixin.qq.com/s?',
+}, {
     nickname: 'iDayDayUP',
     appid: 'wx482958efb057c5a7',
     indexPage: 'pages/daily/daily',
@@ -280,8 +284,7 @@ function GenFormatOneMPUrl(gap, path) {
 
 function genFilterFunc(urlPrefix) {
     return function(item) {
-        var wechat = 'https://mp.weixin.qq.com'
-        if (!item.innerHTML || item.innerHTML.indexOf(urlPrefix)==-1 || item.innerHTML.indexOf(MPTag)!=-1 || item.innerHTML.indexOf(wechat) != -1) {return false}
+        if (!item.innerHTML || item.innerHTML.indexOf(urlPrefix)==-1 || item.innerHTML.indexOf(MPTag)!=-1) {return false}
         return true 
     }
 }
@@ -299,6 +302,11 @@ function filterArr(arr, func) {
 
 function mpLink(transItem, url, text) {
     Count.push(transItem.nickname + ': ' + url)
+    if (transItem.type && transItem.type == 'WechatLink') {
+        text = "   (更多介绍)"
+        return '<a target="_blank" href="' + url + '" textvalue="' + text + '" linktype="text" imgurl="" imgdata="null" tab="innerlink"><span md-inline="url" class="md-link" spellcheck="false" style="word-break: break-all;"><span md-inline="url" class="md-link" spellcheck="false" style="word-break: break-all;">‍' + text + '‍</span></span></a>'
+    }
+
     url = transItem.genMPUrl(transItem, url, text)
     return '<span style="color: rgb(93, 94, 93);font-family: TeXGyreAdventor, &quot;Century Gothic&quot;, &quot;Yu Gothic&quot;, Raleway, STHeiti, sans-serif;font-size: 16px;orphans: 4;white-space: pre-wrap;background-color: rgb(255, 255, 255);"><a class="weapp_text_link" style="font-size:16px;" data-miniprogram-appid="' + transItem.appid + '" data-miniprogram-path="' + url + '" data-miniprogram-nickname="' + transItem.nickname + '" href="" data-miniprogram-type="text" data-miniprogram-servicetype="">' + text + '</a></span>'
 }
@@ -313,9 +321,9 @@ for (i=0; i<directTransform.length; i++) {
     console.log(nickname + ' => allLinks:', allLinks)
 
     filterArr(allLinks, function(item) {
-        // TODO: 判断是不是 md-inline="autolink" class="md-link"
         console.log(nickname, ' => detail:', item)
         var inH = item.innerHTML
+
         if (inH.startsWith(urlPrefix)) {
             item.innerHTML = mpLink(trans, inH, inH)
         } else if (item.firstChild) {
