@@ -24,6 +24,6 @@
      "js": ["util.js", "handlers/race_subscribe.js"]
    }, {
   	"matches": ["https://mp.weixin.qq.com/s?__biz=MzAwMzE5NzM2Nw==*"],
-	"js": ["handlers/gongzhonghao.js"]
+	"js": ["util.js", "handlers/gongzhonghao.js"]
    }]
 }
