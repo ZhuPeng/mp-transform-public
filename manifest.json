@@ -23,7 +23,7 @@
      "matches": ["https://live.utmb.world/*/runners/*", "https://www.geexek.com/score/pscore?*", "https://sport.luojiweiye.com/web/h5/new_grade_cret.html*", "https://*/coureur.php?rech=*"],
      "js": ["util.js", "handlers/race_subscribe.js"]
    }, {
-  	"matches": ["https://mp.weixin.qq.com/s?__biz=MzAwMzE5NzM2Nw==*"],
+  	"matches": ["https://mp.weixin.qq.com/s?__biz=MzAwMzE5NzM2Nw==*", "https://mp.weixin.qq.com/s/*"],
 	"js": ["util.js", "handlers/gongzhonghao.js"]
    }]
 }

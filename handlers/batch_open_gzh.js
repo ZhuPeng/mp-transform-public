@@ -8,7 +8,7 @@ if (elems.length == 0) {
       var ele = elems[i]
       var src = ele.querySelector('a.weui-desktop-mass-appmsg__title').href
       console.log('src:', src)
-      window.open(src + '&autoclose')
+      window.open(src + '?autoclose')
 		  setTimeout(function(){ 
 			console.log('sleep 100ms'); }, 500);
   }

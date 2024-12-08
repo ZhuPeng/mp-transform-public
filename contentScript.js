@@ -7,7 +7,7 @@ var Count = []
 var directTransform = [{
     type: 'WechatLink',
     nickname: 'WechatLink',
-    urlPrefix: 'https://mp.weixin.qq.com/s?',
+    urlPrefix: 'https://mp.weixin.qq.com/s/',
 }, {
     nickname: 'iDayDayUP',
     appid: 'wx482958efb057c5a7',

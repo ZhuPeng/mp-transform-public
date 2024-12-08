@@ -16,7 +16,7 @@ function parseInfo() {
 	if (elem['repo'].length === 0) {
 		elem['repo'] = getTextByPattern(/链接：https:\/\/github.com\/(.*)/gi).split('https://github.com/')[1].split(' ')[0]
 	}
-	elem['url'] = window.location.href.replace("&autoclose", '')
+	elem['url'] = window.location.href.replace("?autoclose", '')
 	elem['intro'] = getElementByXpath(document, '//h4[2]/following-sibling::p[1]').innerText
 	console.log(elem)
 	// alert(JSON.stringify(elem))
