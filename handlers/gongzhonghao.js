@@ -16,7 +16,7 @@ function parseInfo() {
 	if (elem['repo'].length === 0) {
 		elem['repo'] = getTextByPattern(/链接：https:\/\/github.com\/(.*)/gi).split('https://github.com/')[1].split(' ')[0]
 	}
-	elem['url'] = window.location.href.replace("?autoclose", '')
+	elem['url'] = window.location.href.replace("?autoclose", '').replace('&autoclose', '')
 	var intro = getElementByXpath(document, '//h4[2]/following-sibling::p[1]')
 	if (intro == null) {
 	    intro = getElementByXpath(document, '//h6[2]/following-sibling::p[1]')
