@@ -76,7 +76,7 @@ var Handlers = [{
     urls: ['https://live.utmb.world/', 'https://www.geexek.com/score/pscore?', 'https://sport.luojiweiye.com/web/h5/new_grade_cret.html', '/coureur.php?rech='],
 }, {
     execScript: 'handlers/gongzhonghao.js',
-    urls: ['https://mp.weixin.qq.com/s?__biz='],
+    urls: ['https://mp.weixin.qq.com/s?__biz=', 'https://mp.weixin.qq.com/s/'],
 }]
 
 chrome.browserAction.onClicked.addListener(function(tab) {
